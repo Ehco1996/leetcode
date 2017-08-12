@@ -14,3 +14,4 @@ Leetcode Python3 Version
 4. Sum of Square Numbers [link](https://leetcode.com/problems/sum-of-square-numbers/description/)
 5. Maximum Average Subarray I [link](https://leetcode.com/problems/maximum-average-subarray-i/description/)
 6. Maximum Product of Three Numbers[link](https://leetcode.com/problems/maximum-product-of-three-numbers/description/)
+7. Maximum Product Subarray [link](https://leetcode.com/problems/maximum-product-subarray/description/)
