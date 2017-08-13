@@ -15,3 +15,5 @@ Leetcode Python3 Version
 5. Maximum Average Subarray I [link](https://leetcode.com/problems/maximum-average-subarray-i/description/)
 6. Maximum Product of Three Numbers[link](https://leetcode.com/problems/maximum-product-of-three-numbers/description/)
 7. Maximum Product Subarray [link](https://leetcode.com/problems/maximum-product-subarray/description/)
+8. Swap Salary [link](https://leetcode.com/problems/swap-salary/description/)
+9. Add Two Numbers [link](https://leetcode.com/problems/add-two-numbers/description/)
