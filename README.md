@@ -18,3 +18,4 @@ Leetcode Python3 Version
 8. Swap Salary [link](https://leetcode.com/problems/swap-salary/description/)
 9. Add Two Numbers [link](https://leetcode.com/problems/add-two-numbers/description/)
 10. Judge Route Circle [link](https://leetcode.com/problems/judge-route-circle/description/)
+11. Friend Circles [link](https://leetcode.com/problems/friend-circles/discuss/)
