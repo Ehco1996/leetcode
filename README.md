@@ -21,4 +21,5 @@ Leetcode Python3 Version
 11. Friend Circles [link](https://leetcode.com/problems/friend-circles/discuss/)
 12. Submission Details [link](https://leetcode.com/problems/set-mismatch/description/)
 13. Roman to Integer [link](https://leetcode.com/problems/roman-to-integer/description/g)
-14. Remove Element [link]()
+14. Remove Element [link](https://leetcode.com/problems/remove-element/)
+15. Longest Common Prefix [link](https://leetcode.com/problems/longest-common-prefix/)
