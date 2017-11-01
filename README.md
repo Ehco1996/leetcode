@@ -23,3 +23,4 @@ Leetcode Python3 Version
 13. Roman to Integer [link](https://leetcode.com/problems/roman-to-integer/description/g)
 14. Remove Element [link](https://leetcode.com/problems/remove-element/)
 15. Longest Common Prefix [link](https://leetcode.com/problems/longest-common-prefix/)
+16. Valid Parentheses [link](https://leetcode.com/problems/valid-parentheses/description/)
