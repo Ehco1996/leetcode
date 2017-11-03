@@ -25,3 +25,4 @@ Leetcode Python3 Version
 15. Longest Common Prefix [link](https://leetcode.com/problems/longest-common-prefix/)
 16. Valid Parentheses [link](https://leetcode.com/problems/valid-parentheses/description/)
 17. Merge Two Sorted Lists [link](https://leetcode.com/problems/merge-two-sorted-lists/description/)
+18. Remove Duplicates from Sorted Array [link](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
