@@ -26,3 +26,4 @@ Leetcode Python3 Version
 16. Valid Parentheses [link](https://leetcode.com/problems/valid-parentheses/description/)
 17. Merge Two Sorted Lists [link](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 18. Remove Duplicates from Sorted Array [link](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
+19. Implement strStr() [link](https://leetcode.com/problems/implement-strstr/description/)
