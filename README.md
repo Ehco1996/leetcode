@@ -28,3 +28,4 @@ Leetcode Python3 Version
 18. Remove Duplicates from Sorted Array [link](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 19. Implement strStr() [link](https://leetcode.com/problems/implement-strstr/description/)
 20. Search Insert Position [link](https://leetcode.com/problems/search-insert-position/description/Ï)
+21. Big Countries [link](https://leetcode.com/problems/big-countries/description/)
