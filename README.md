@@ -29,3 +29,4 @@ Leetcode Python3 Version
 19. Implement strStr() [link](https://leetcode.com/problems/implement-strstr/description/)
 20. Search Insert Position [link](https://leetcode.com/problems/search-insert-position/description/Ï)
 21. Big Countries [link](https://leetcode.com/problems/big-countries/description/)
+22. Hamming Distance [link](https://leetcode.com/problems/hamming-distance/description/)
