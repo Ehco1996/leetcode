@@ -31,3 +31,4 @@ Leetcode Python3 Version
 21. Big Countries [link](https://leetcode.com/problems/big-countries/description/)
 22. Hamming Distance [link](https://leetcode.com/problems/hamming-distance/description/)
 23. Array Partition I [link](https://leetcode.com/problems/array-partition-i/description/)
+24. Self Dividing Numbers [link](https://leetcode.com/problems/self-dividing-numbers/description/)
