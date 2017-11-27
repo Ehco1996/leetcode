@@ -12,6 +12,8 @@ Input: 1
 Output: 0
 Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.
 
+author: Ehco1996
+time: 2017-10-30
 '''
 
 
