@@ -35,3 +35,4 @@ Leetcode Python3 Version
 25. Number Complement [link](https://leetcode.com/problems/number-complement/description/)
 26. Reverse Words in a String III [link](https://leetcode.com/problems/reverse-words-in-a-string-iii/description/)
 27. Keyboard Row [link](https://leetcode.com/problems/keyboard-row/description/)
+28. 521 Longest Uncommon Subsequence I [link](https://leetcode.com/problems/longest-uncommon-subsequence-i/description/)Longest Uncommon Subsequence)
