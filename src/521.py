@@ -21,9 +21,9 @@ time: 2017-12-6
 class Solution:
     def genSubsequence(self, s):
         '''
-        genrate the subsequence list of the string
+        generate the subsequence list of the string
         :type s: str
-        :rtype sorted(list) 
+        :rtype sorted<list> 
         '''
         res = ['', ]
         for i in range(len(s)):
