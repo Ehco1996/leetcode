@@ -35,7 +35,7 @@ class Solution:
     def findLUSlength(self, a, b):
         """
         :type a: str
-        :type b: str]
+        :type b: str
         :rtype: int
         """
         a_list = self.genSubsequence(a)
