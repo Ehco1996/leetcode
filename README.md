@@ -37,3 +37,4 @@ Leetcode Python3 Version
 27. Keyboard Row [link](https://leetcode.com/problems/keyboard-row/description/)
 28. 521 Longest Uncommon Subsequence I [link](https://leetcode.com/problems/longest-uncommon-subsequence-i/description/)Longest Uncommon Subsequence)
 29. 443 String Compression [link](https://leetcode.com/problems/string-compression/hints/)
+30. 520 Detect Capital [link](https://leetcode.com/problems/detect-capital/description/)
