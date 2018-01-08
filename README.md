@@ -39,3 +39,4 @@ Leetcode Python3 Version
 29. 443 String Compression [link](https://leetcode.com/problems/string-compression/hints/)
 30. 520 Detect Capital [link](https://leetcode.com/problems/detect-capital/description/)
 31. 682 Baseball Game [link](https://leetcode.com/problems/baseball-game/description/)
+32. 665 Non-decreasing Array [link](https://leetcode.com/problems/non-decreasing-array/description/)
