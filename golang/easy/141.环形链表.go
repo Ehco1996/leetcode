@@ -84,15 +84,3 @@ func hasCycle(head *ListNode) bool {
 	}
 	return false
 }
-
-// func main() {
-// 	head := &ListNode{
-// 		Val: 1,
-// 		Next: &ListNode{
-// 			Val:  2,
-// 			Next: nil,
-// 		},
-// 	}
-
-// 	fmt.Println(hasCycle(head))
-// }
