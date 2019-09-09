@@ -1,0 +1,107 @@
+/*
+ * @lc app=leetcode.cn id=496 lang=golang
+ *
+ * [496] 下一个更大元素 I
+ *
+ * https://leetcode-cn.com/problems/next-greater-element-i/description/
+ *
+ * algorithms
+ * Easy (60.31%)
+ * Likes:    105
+ * Dislikes: 0
+ * Total Accepted:    12.5K
+ * Total Submissions: 20.5K
+ * Testcase Example:  '[4,1,2]\n[1,3,4,2]'
+ *
+ * 给定两个没有重复元素的数组 nums1 和 nums2 ，其中nums1 是 nums2 的子集。找到 nums1 中每个元素在 nums2
+ * 中的下一个比其大的值。
+ *
+ * nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出-1。
+ *
+ * 示例 1:
+ *
+ *
+ * 输入: nums1 = [4,1,2], nums2 = [1,3,4,2].
+ * 输出: [-1,3,-1]
+ * 解释:
+ * ⁠   对于num1中的数字4，你无法在第二个数组中找到下一个更大的数字，因此输出 -1。
+ * ⁠   对于num1中的数字1，第二个数组中数字1右边的下一个较大数字是 3。
+ * ⁠   对于num1中的数字2，第二个数组中没有下一个更大的数字，因此输出 -1。
+ *
+ * 示例 2:
+ *
+ *
+ * 输入: nums1 = [2,4], nums2 = [1,2,3,4].
+ * 输出: [3,-1]
+ * 解释:
+ * 对于num1中的数字2，第二个数组中的下一个较大数字是3。
+ * ⁠   对于num1中的数字4，第二个数组中没有下一个更大的数字，因此输出 -1。
+ *
+ *
+ * 注意:
+ *
+ *
+ * nums1和nums2中所有元素是唯一的。
+ * nums1和nums2 的数组大小都不超过1000。
+ *
+ *
+ */
+func nextGreaterElement1(nums1 []int, nums2 []int) []int {
+	if len(nums1) < 1 {
+		return []int{}
+	}
+	res := make([]int, len(nums1))
+	h := make(map[int]int)
+
+	for idx, num := range nums2 {
+		if idx == len(nums2)-1 {
+			h[num] = -1
+			break
+		}
+
+		found := false
+		for _, n := range nums2[idx+1:] {
+			if n > num {
+				h[num] = n
+				found = true
+				break
+			}
+		}
+		if !found {
+			h[num] = -1
+		}
+	}
+
+	for idx, num := range nums1 {
+		res[idx] = h[num]
+	}
+	return res
+}
+
+func nextGreaterElement(nums1 []int, nums2 []int) []int {
+	if len(nums1) < 1 {
+		return []int{}
+	}
+
+	res := make([]int, len(nums1))
+	h := make(map[int]int)
+	stack := []int{}
+
+	for _, num := range nums2 {
+		for len(stack) > 0 && stack[len(stack)-1] < num {
+			h[stack[len(stack)-1]] = num
+			stack = stack[:len(stack)-1]
+		}
+		stack = append(stack, num)
+	}
+	// fmt.Println(stack, h)
+	for idx, num := range nums1 {
+		if h[num] > 0 {
+			res[idx] = h[num]
+		} else {
+			res[idx] = -1
+		}
+	}
+	return res
+}
+
