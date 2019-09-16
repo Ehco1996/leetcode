@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=168 lang=golang
@@ -51,6 +49,7 @@ import "fmt"
  *
  */
 func convertToTitle(n int) string {
+	// hash
 	var h = map[int]string{
 		1:  "A",
 		2:  "B",
@@ -90,8 +89,4 @@ func convertToTitle(n int) string {
 		n /= 26
 	}
 	return res
-}
-
-func main() {
-	fmt.Println(convertToTitle(702))
 }

@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=189 lang=golang
@@ -46,8 +44,8 @@ import "fmt"
  *
  */
 func rotate1(nums []int, k int) {
+	// 暴力移动
 	lens := len(nums)
-
 	for c := 0; c < k; c++ {
 		tmp := nums[lens-1]
 		var now int
@@ -68,19 +66,12 @@ func reverse(nums []int, i, j int) {
 }
 
 func rotate(nums []int, k int) {
+	// 只需要将数组的部分翻转三次
 	lens := len(nums)
 	if k >= lens {
 		k = k % lens
 	}
-	fmt.Println(k)
 	reverse(nums, 0, lens-1)
 	reverse(nums, 0, k-1)
 	reverse(nums, k, lens-1)
 }
-
-// func main() {
-// 	l := []int{1, 2, 3, 4, 5, 6, 7}
-// 	rotate(l, 8)
-// 	// reverse(l, 7)
-// 	fmt.Println(l)
-// }

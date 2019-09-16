@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=198 lang=golang
@@ -57,8 +55,3 @@ func rob(nums []int) int {
 	}
 	return now
 }
-
-// func main() {
-// 	l := []int{2, 7, 9, 3, 1}
-// 	fmt.Println(rob(l))
-// }

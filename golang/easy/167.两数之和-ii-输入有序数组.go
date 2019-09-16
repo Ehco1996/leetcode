@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=167 lang=golang
@@ -36,14 +34,13 @@ import "fmt"
  *
  */
 func twoSum(numbers []int, target int) []int {
-	res :=[]int{-1,-1}
-
+	// 双指针 双向移动
+	res := []int{-1, -1}
 	for i, j := 0, len(numbers)-1; i != j; {
 		t := numbers[i] + numbers[j]
-		fmt.Println(t)
 		if t == target {
-			res[0]=i+1
-			res[1]=j+1
+			res[0] = i + 1
+			res[1] = j + 1
 			return res
 		}
 		if t < target {
@@ -54,11 +51,3 @@ func twoSum(numbers []int, target int) []int {
 	}
 	return res
 }
-
-
-
-// func main(){
-// 	fmt.Println(twoSum([]int{2,7,8},9))
-// }
-
-

@@ -1,7 +1,4 @@
-package main
-
-import "fmt"
-
+package easy
 /*
  * @lc app=leetcode.cn id=202 lang=golang
  *
@@ -35,7 +32,7 @@ import "fmt"
  *
  */
 func isHappy(n int) bool {
-	// 如果一个平凡和重复出现了，那么这个数一定不快乐
+	// 如果一个平方和重复出现了，那么这个数一定不快乐
 	cache := make(map[int]int)
 	for n != 1 {
 		sum :=0
@@ -52,6 +49,3 @@ func isHappy(n int) bool {
 	}
 	return true
 }
-// func main() {
-// 	fmt.Println(isHappy(16))
-// }

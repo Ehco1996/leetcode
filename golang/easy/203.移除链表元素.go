@@ -1,4 +1,4 @@
-package main
+// package easy
 
 /*
  * @lc app=leetcode.cn id=203 lang=golang
@@ -32,19 +32,21 @@ package main
  * }
  */
 func removeElements(head *ListNode, val int) *ListNode {
-	ret := head
-	last := head
-	for head != nil {
-		if head.Val == val {
-			last.Next = head.Next
-		} else {
-			last = head
-		}
-		head = head.Next
-
-		if ret.Val == val {
-			ret = head
-		}
+	if head == nil {
+		return head
 	}
-	return ret
+	for head != nil && head.Val == val {
+		head = head.Next
+	}
+	pre := head
+	now := head
+	for now != nil {
+		if now.Val == val {
+			pre.Next = now.Next
+		} else {
+			pre = now
+		}
+		now = now.Next
+	}
+	return head
 }

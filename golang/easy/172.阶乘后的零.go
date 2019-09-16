@@ -1,4 +1,4 @@
-// package main
+package easy
 
 /*
  * @lc app=leetcode.cn id=172 lang=golang

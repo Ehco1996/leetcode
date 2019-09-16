@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package easy
 
 /*
  * @lc app=leetcode.cn id=171 lang=golang
@@ -55,6 +51,7 @@ import (
  *
  */
 func titleToNumber(s string) int {
+	// hash 26进制
 	var h = map[string]int{
 		"A": 1,
 		"B": 2,

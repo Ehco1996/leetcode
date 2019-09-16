@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=169 lang=golang
@@ -34,16 +32,15 @@ import "fmt"
  *
  */
 func majorityElement(nums []int) int {
+	// 因为总是存在众数，那么这个数的数量一定是>n/2的
 	c := 0
 	res := nums[0]
 	for _, num := range nums {
-
 		if num == res {
 			c += 1
 		} else {
 			c -= 1
 		}
-
 		if c == 0 {
 			res = num
 			c = 1
@@ -51,6 +48,3 @@ func majorityElement(nums []int) int {
 	}
 	return res
 }
-// func main() {
-// 	fmt.Println(majorityElement([]int{3, 2, 3}))
-// }

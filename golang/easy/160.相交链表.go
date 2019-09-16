@@ -1,4 +1,4 @@
-package main
+package easy
 
 /*
  * @lc app=leetcode.cn id=160 lang=golang
@@ -82,6 +82,7 @@ package main
  * }
  */
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	// hash记录访问次数，次数为2的是相交节点
 
 	h := make((map[*ListNode]int))
 	for headA != nil {
