@@ -33,32 +33,25 @@ package main
  *
  */
 
-func generate(numRows int) [][]int {
-	if numRows == 0 {
-		return [][]int{}
+func getRow(rowIndex int) []int {
+	// 只保留上一行的数据
+
+	last := []int{1}
+	if rowIndex == 0 {
+		return last
 	}
 
-	res := [][]int{{}}
-	for i := 0; i < numRows; i++ {
-		if i > 0 {
-			res = append(res, []int{})
-		}
+	res := []int{}
+	for i := 1; i <= rowIndex; i++ {
 		for j := 0; j <= i; j++ {
 			need := 1
 			if 0 < j && j < i {
-				need = res[i-1][j-1] + res[i-1][j]
+				need = last[j-1] + last[j]
 			}
-			res[i] = append(res[i], need)
+			res = append(res, need)
 		}
+		last = res
+		res = []int{}
 	}
-	return res
+	return last
 }
-func getRow(rowIndex int) []int {
-
-	triangle := generate(rowIndex + 1)
-	return triangle[rowIndex]
-}
-
-// func main() {
-// 	fmt.Println(getRow(0))
-// }

@@ -48,6 +48,7 @@
 // }
 
 func hasPathSum(root *TreeNode, sum int) bool {
+	// 递归到每个叶子节点看和是否满足要求
 	if root == nil {
 		return false
 	}

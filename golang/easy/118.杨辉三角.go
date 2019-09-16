@@ -54,8 +54,3 @@ func generate(numRows int) [][]int {
 	}
 	return res
 }
-
-// func main() {
-// 	fmt.Println(generate(4))
-
-// }

@@ -30,8 +30,8 @@ package main
  */
 
 func twoSum(nums []int, target int) []int {
+	// hash 一次遍历 空间：O(n) 时间O(n)
 	info := make(map[int]int)
-
 	for i, num := range nums {
 		if index, ok := info[target-num]; ok {
 			return []int{index, i}

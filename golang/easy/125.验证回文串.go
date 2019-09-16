@@ -1,4 +1,4 @@
-// package main
+package easy
 
 import (
 	"fmt"
@@ -46,7 +46,6 @@ func isPalindrome(s string) bool {
 	s = strings.ToLower(s)
 	runes := []rune(s)
 	for i, j := 0, len(runes)-1; j-i >= 0; {
-		fmt.Println(i, j)
 		if !unicode.IsLetter(runes[i]) && !unicode.IsNumber(runes[i]) {
 			i++
 			continue
@@ -66,7 +65,3 @@ func isPalindrome(s string) bool {
 	}
 	return true
 }
-
-// func main() {
-// 	fmt.Println(isPalindrome("race a car"))
-// }

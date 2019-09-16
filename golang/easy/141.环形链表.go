@@ -1,4 +1,4 @@
-package main
+package easy
 
 import "fmt"
 
@@ -71,13 +71,13 @@ import "fmt"
 // }
 
 func hasCycle(head *ListNode) bool {
+	// 快慢指针, 如果有环 那么两个指针一定会相遇
 	walker := head
 	runner := head
 
 	for walker != nil && runner != nil && runner.Next != nil {
 		walker = walker.Next
 		runner = runner.Next.Next
-		fmt.Println(walker, runner)
 		if walker == runner {
 			return true
 		}

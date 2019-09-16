@@ -1,4 +1,4 @@
-// package main
+package easy
 
 /*
  * @lc app=leetcode.cn id=122 lang=golang
@@ -47,8 +47,8 @@
  *
  */
 func maxProfit(prices []int) int {
-    // 贪心算法，只要今天比昨天贵就卖出
-    if len(prices)==0{
+	// 贪心算法，只要今天比昨天贵就卖出
+	if len(prices) == 0 {
 		return 0
 	}
 	price := prices[0]
@@ -62,7 +62,3 @@ func maxProfit(prices []int) int {
 	}
 	return maxProfile
 }
-
-// func main() {
-// 	fmt.Println(maxProfit([]int{7, 6, 4, 3, 1}))
-// }

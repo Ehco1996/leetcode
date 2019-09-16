@@ -1,4 +1,4 @@
-package main
+package easy
 
 import "fmt"
 
@@ -55,10 +55,9 @@ func Constructor() MinStack {
 }
 
 func (this *MinStack) Push(x int) {
-
+	// 双栈比较 如果当前值小于最小栈里的最小值（最小栈顶的元素），则将该元素入栈
 	this.Stack = append([]int{x}, this.Stack...)
-
-	if len(this.Min) == 0 || x <=this.Min[0] {
+	if len(this.Min) == 0 || x <= this.Min[0] {
 		this.Min = append([]int{x}, this.Min...)
 	}
 
@@ -87,32 +86,3 @@ func (this *MinStack) GetMin() int {
 	}
 	return 0
 }
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Push(x);
- * obj.Pop();
- * param_3 := obj.Top();
- * param_4 := obj.GetMin();
- */
-
-// func main() {
-// 	obj := Constructor()
-// 	obj.Push(2)
-// 	obj.Push(0)
-// 	obj.Push(3)
-// 	obj.Push(0)
-//     fmt.Println(obj.GetMin())
-//     obj.Pop()
-//     fmt.Println(obj.GetMin())
-//     obj.Pop()
-//     fmt.Println(obj.GetMin())
-//     obj.Pop()
-//     fmt.Println(obj.GetMin())
-    
-//     fmt.Println(obj.Top())
-// 	fmt.Println(obj.GetMin())
-// 	fmt.Println(obj.Top())
-
-// }
