@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=226 lang=golang
@@ -50,8 +50,9 @@
  * }
  */
 func invertTree(root *TreeNode) *TreeNode {
-	if root !=nil{
-		root.Left , root.Right=  root.Right , root.Left
+	// 标准的递归实现
+	if root != nil {
+		root.Left, root.Right = root.Right, root.Left
 		invertTree(root.Left)
 		invertTree(root.Right)
 	}

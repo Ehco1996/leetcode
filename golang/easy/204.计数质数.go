@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"math"
-)
+package easy
 
 /*
  * @lc app=leetcode.cn id=204 lang=golang

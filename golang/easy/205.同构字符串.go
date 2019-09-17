@@ -1,5 +1,5 @@
-package main
-import "fmt"
+// package easy
+
 /*
  * @lc app=leetcode.cn id=205 lang=golang
  *
@@ -43,42 +43,23 @@ import "fmt"
  */
 
 func isIsomorphic(s string, t string) bool {
-	h1 := make(map[string]int)
-	pattern1 := make([]int, len(s))
-	curFlag := 0
-	// gen s pattern
-	for idx, c := range s {
-		if p, ok := h1[string(c)]; !ok {
-			pattern1[idx] = curFlag
-			h1[string(c)] = curFlag
-			curFlag++
-		} else {
-			pattern1[idx] = p
-		}
-	}
-	// fmt.Println(pattern1)
+	// hash k: 字符 v:上一次出现的idx
+	// 每次比较出现的 idx是否一样
+	h1 := make(map[byte]int)
+	h2 := make(map[byte]int)
 
-	h2 := make(map[string]int)
-	curFlag = 0
-	for idx,c :=range t{
-		_, ok := h2[string(c)]
-		if !ok {
-			h2[string(c)] = curFlag
-			curFlag++
-		}
-
-
-		if h2[string(c)] != pattern1[idx]{
-			// fmt.Println(h2,idx,c)
+	for idx := 0; idx < len(s); idx++ {
+		c1 := s[idx]
+		c2 := t[idx]
+		v1, ok1 := h1[c1]
+		v2, ok2 := h2[c2]
+		if v1 != v2 || (ok1 != ok2) {
 			return false
+		} else {
+			h1[c1] = idx
+			h2[c2] = idx
 		}
+
 	}
 	return true
-
 }
-
-// func main(){
-// 	s :="aa"
-// 	t :="ab"
-// 	fmt.Println(isIsomorphic(s,t))
-// }

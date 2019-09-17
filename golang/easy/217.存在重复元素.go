@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=217 lang=golang
@@ -36,6 +36,7 @@
  *
  */
 func containsDuplicate(nums []int) bool {
+	// hash
 	h := make(map[int]int)
 	for _, num := range nums {
 		h[num] += 1

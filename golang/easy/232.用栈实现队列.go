@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=232 lang=golang
@@ -56,13 +56,13 @@ func Constructor() MyQueue {
 
 /** Push element x to the back of queue. */
 func (this *MyQueue) Push(x int) {
-	this.Stack = append(this.Stack,x)
+	this.Stack = append(this.Stack, x)
 
 }
 
 /** Removes the element from in front of queue and returns that element. */
 func (this *MyQueue) Pop() int {
-	if len(this.Stack)>0{
+	if len(this.Stack) > 0 {
 		res := this.Peek()
 		this.Stack = this.Stack[1:]
 		return res
@@ -72,7 +72,7 @@ func (this *MyQueue) Pop() int {
 
 /** Get the front element. */
 func (this *MyQueue) Peek() int {
-	if len(this.Stack)>0{
+	if len(this.Stack) > 0 {
 		return this.Stack[0]
 	}
 	return -1
@@ -80,13 +80,5 @@ func (this *MyQueue) Peek() int {
 
 /** Returns whether the queue is empty. */
 func (this *MyQueue) Empty() bool {
-	return len(this.Stack) ==0
+	return len(this.Stack) == 0
 }
-/**
- * Your MyQueue object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Push(x);
- * param_2 := obj.Pop();
- * param_3 := obj.Peek();
- * param_4 := obj.Empty();
- */

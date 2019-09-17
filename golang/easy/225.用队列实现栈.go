@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=225 lang=golang
  *
@@ -69,14 +71,5 @@ func (this *MyStack) Top() int {
 
 /** Returns whether the stack is empty. */
 func (this *MyStack) Empty() bool {
-	return len(this.Stack)==0
+	return len(this.Stack) == 0
 }
-
-/**
- * Your MyStack object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Push(x);
- * param_2 := obj.Pop();
- * param_3 := obj.Top();
- * param_4 := obj.Empty();
- */

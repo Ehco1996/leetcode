@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=206 lang=golang
@@ -49,4 +47,3 @@ func reverseList(head *ListNode) *ListNode {
 	return last
 
 }
-

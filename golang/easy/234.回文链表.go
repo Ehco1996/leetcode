@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=234 lang=golang
  *
@@ -41,29 +43,29 @@ func isPalindrome(head *ListNode) bool {
 	// 1.快慢指针找到链表的中点
 	// 2.翻转链表前半部分
 	// 3.回文校验
-	if head == nil || head.Next == nil{
+	if head == nil || head.Next == nil {
 		return true
 	}
 
 	slow := head.Next
 	fast := head.Next.Next
-	for fast !=nil &&fast.Next!=nil{
+	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
 		slow = slow.Next
 	}
 
 	var prev *ListNode
-	for head != slow{
-		head.Next,prev,head = prev,head,head.Next
+	for head != slow {
+		head.Next, prev, head = prev, head, head.Next
 	}
 
 	//如果是奇数个节点，去掉后半部分的第一个节点
-	if fast != nil{
+	if fast != nil {
 		slow = slow.Next
 	}
 
-	for prev != nil{
-		if prev.Val != slow.Val{
+	for prev != nil {
+		if prev.Val != slow.Val {
 			return false
 		}
 		prev = prev.Next

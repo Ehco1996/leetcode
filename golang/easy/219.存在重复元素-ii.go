@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=219 lang=golang
@@ -44,7 +42,7 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 
 		if len(h[num]) > 1 {
 			for _, lastIdx := range h[num] {
-				if idx-lastIdx <= k && idx!=lastIdx {
+				if idx-lastIdx <= k && idx != lastIdx {
 					return true
 				}
 			}
@@ -52,8 +50,3 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 	}
 	return false
 }
-
-// func main() {
-// 	nums := []int{1, 2,3,1,2,3}
-// 	fmt.Println(containsNearbyDuplicate(nums, 2))
-// }

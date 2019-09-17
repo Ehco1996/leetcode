@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=231 lang=golang
@@ -36,13 +36,14 @@
  *
  */
 func isPowerOfTwo(n int) bool {
-	if n==1{
+	// 不停的x2 看是否相等
+	if n == 1 {
 		return true
 	}
-	m :=1
-	for m<n {
-		m *=2
+	m := 1
+	for m < n {
+		m *= 2
 	}
-	return m==n
+	return m == n
 
 }
