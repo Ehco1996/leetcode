@@ -1,4 +1,4 @@
-package main
+package easy
 
 /*
  * @lc app=leetcode.cn id=292 lang=golang
@@ -30,7 +30,5 @@ package main
  */
 func canWinNim(n int) bool {
 	// 如果堆中石头的数量 nn 不能被 44 整除，那么你总是可以赢得 Nim 游戏的胜利。
-	return !(n %4 == 0)
-
-
+	return !(n%4 == 0)
 }

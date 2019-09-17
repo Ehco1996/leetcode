@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=258 lang=golang
@@ -30,13 +30,13 @@
  */
 func addDigits(num int) int {
 	// 每轮相加会使得概数减小9的整数倍
-	if num<=9{
+	if num <= 9 {
 		return num
 	}
 
-	if r:=num % 9;r ==0{
+	if r := num % 9; r == 0 {
 		return 9
-	}else{
+	} else {
 		return r
 	}
 }

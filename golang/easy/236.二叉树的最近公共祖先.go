@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=236 lang=golang
  *
@@ -48,7 +50,6 @@
  *
  *
  */
-package main
 
 // type TreeNode struct {
 // 	Val   int
@@ -57,6 +58,7 @@ package main
 // }
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	// 层序遍历 不停的向下找
 
 	ans := root
 
@@ -68,22 +70,22 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 		ans = node
 
 		if node.Left != nil &&
-			findNode(q.Val, node.Left) && findNode(p.Val, node.Left) {
+			findNodeVal(q.Val, node.Left) && findNodeVal(p.Val, node.Left) {
 			queue = append(queue, node.Left)
 		}
 		if node.Right != nil &&
-			findNode(q.Val, node.Right) && findNode(p.Val, node.Right) {
+			findNodeVal(q.Val, node.Right) && findNodeVal(p.Val, node.Right) {
 			queue = append(queue, node.Right)
 		}
 	}
 	return ans
 }
 
-func findNode(val int, node *TreeNode) bool {
+func findNodeVal(val int, node *TreeNode) bool {
 	if node == nil {
 		return false
 	} else if node.Val == val {
 		return true
 	}
-	return findNode(val, node.Left) || findNode(val, node.Right)
+	return findNodeVal(val, node.Left) || findNodeVal(val, node.Right)
 }

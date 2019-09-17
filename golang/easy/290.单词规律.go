@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"strings"
-)
+package easy
 
 /*
  * @lc app=leetcode.cn id=290 lang=golang
@@ -49,6 +44,7 @@ import (
  *
  */
 func wordPattern(pattern string, str string) bool {
+	// 哈希
 	strList := strings.Split(str, " ")
 	h := make(map[string]string)
 	if len(strList) != len(pattern) {
@@ -58,8 +54,8 @@ func wordPattern(pattern string, str string) bool {
 	for i := 0; i < len(pattern); i++ {
 		v, ok := h[string(pattern[i])]
 		if !ok {
-			for _,s :=range h{
-				if s == strList[i]{
+			for _, s := range h {
+				if s == strList[i] {
 					return false
 				}
 			}
@@ -72,9 +68,3 @@ func wordPattern(pattern string, str string) bool {
 	}
 	return true
 }
-
-// func main() {
-// 	pattern := "abba"
-// 	str := "dog dog dog dog"
-// 	fmt.Println(wordPattern(pattern, str))
-// }

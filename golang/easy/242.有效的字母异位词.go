@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=242 lang=golang
@@ -36,22 +36,23 @@
  *
  */
 func isAnagram(s string, t string) bool {
-	if len(s)!=len(t){
+	//hash
+	if len(s) != len(t) {
 		return false
 	}
 
 	m := make(map[rune]int)
 
-	for _,c := range s{
+	for _, c := range s {
 		m[c] += 1
 	}
 
-	for _,c := range t{
-		v,ok := m[c];
-		if !ok || v <1{
+	for _, c := range t {
+		v, ok := m[c]
+		if !ok || v < 1 {
 			return false
-		}else{
-			m[c]-=1
+		} else {
+			m[c] -= 1
 		}
 	}
 	return true

@@ -1,4 +1,5 @@
-// package golang
+package easy
+
 /*
  * @lc app=leetcode.cn id=235 lang=golang
  *
@@ -56,32 +57,29 @@
  *     Right *ListNode
  * }
  */
-func isAnc(root,p *TreeNode)bool{
-	if root == p{
+func isAnc(root, p *TreeNode) bool {
+	if root == p {
 		return true
 	}
-	if root==nil{
+	if root == nil {
 		return false
 	}
-	return isAnc(root.Left,p) || isAnc(root.Right,p)
-
-
+	return isAnc(root.Left, p) || isAnc(root.Right, p)
 
 }
 
-
- func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
-	 // 暴力
+func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
+	// 暴力
 	anc := root
 
-	for root!=nil{
-		if isAnc(root.Left,p) && isAnc(root.Left,q){
+	for root != nil {
+		if isAnc(root.Left, p) && isAnc(root.Left, q) {
 			anc = root.Left
 			root = root.Left
-		}else if isAnc(root.Right,p) && isAnc(root.Right,q){
+		} else if isAnc(root.Right, p) && isAnc(root.Right, q) {
 			anc = root.Right
 			root = root.Right
-		}else{
+		} else {
 			break
 		}
 	}
@@ -95,28 +93,28 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	// 所以我们要找他们最先出现的祖先节点，这意味着他们一定在某一个节点的两边，
 	// 对于这个节点就是他们最先出现的祖先节点，此节点满足二叉搜索树种的特点，
 	// 只需要找到某个节点中同时满足大于p节点的值还满足小于q节点的值即可（因为题目规定p<q）
-	if root == nil{
+	if root == nil {
 		return nil
 	}
 
 	// switch
-	if p.Val > q.Val{
-		p,q = q,p
+	if p.Val > q.Val {
+		p, q = q, p
 	}
 
-	if root.Val>=p.Val && root.Val<=q.Val{
+	if root.Val >= p.Val && root.Val <= q.Val {
 		return root
 	}
 
-	if root.Val>=p.Val && root.Val>q.Val && root.Left!=nil{
-		return lowestCommonAncestor(root.Left,p,q)
+	if root.Val >= p.Val && root.Val > q.Val && root.Left != nil {
+		// 左移变小
+		return lowestCommonAncestor(root.Left, p, q)
 	}
 
-	if root.Val<p.Val && root.Val<=q.Val && root.Right!=nil{
-		return lowestCommonAncestor(root.Right,p,q)
+	if root.Val < p.Val && root.Val <= q.Val && root.Right != nil {
+		// 右移变大
+		return lowestCommonAncestor(root.Right, p, q)
 	}
 	return root
 
 }
-
-

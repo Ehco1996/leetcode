@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=257 lang=golang
@@ -43,35 +43,33 @@
  * }
  */
 
-
-
-
 func binaryTreePaths(root *TreeNode) []string {
+	// 递归
 	paths := []string{}
 
-	if root == nil{
+	if root == nil {
 		return paths
 	}
 
-	if root.Left == nil && root.Right ==nil{
-		paths = append(paths,strconv.Itoa(root.Val))
+	if root.Left == nil && root.Right == nil {
+		paths = append(paths, strconv.Itoa(root.Val))
 	}
 
-	if root.Left!= nil{
-		for _,path:=range binaryTreePaths(root.Left){
-			s:= strconv.Itoa(root.Val)
+	if root.Left != nil {
+		for _, path := range binaryTreePaths(root.Left) {
+			s := strconv.Itoa(root.Val)
 			s += "->"
 			s += path
-			paths = append(paths,s)
+			paths = append(paths, s)
 		}
 	}
 
-	if root.Right!= nil{
-		for _,path:=range binaryTreePaths(root.Right){
-			s:= strconv.Itoa(root.Val)
+	if root.Right != nil {
+		for _, path := range binaryTreePaths(root.Right) {
+			s := strconv.Itoa(root.Val)
 			s += "->"
 			s += path
-			paths = append(paths,s)
+			paths = append(paths, s)
 		}
 	}
 

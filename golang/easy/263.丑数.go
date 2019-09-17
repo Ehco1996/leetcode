@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=263 lang=golang
@@ -47,25 +47,25 @@
  *
  */
 func isUgly(num int) bool {
-	unums := []int{5,3,2}
-	for num !=1{
+	// 暴力 不停的除这这三个因数
+	unums := []int{5, 3, 2}
+	for num != 1 {
 		last := num
-		for _,u := range unums{
-			if num % u ==0{
+		for _, u := range unums {
+			if num%u == 0 {
 				num = num / u
 				break
 			}
 		}
-		if num == last{
+		if num == last {
 			break
 		}
 	}
-	if num==1{
+	if num == 1 {
 		return true
 	}
-	if num !=5 && num  !=3 && num != 2{
+	if num != 5 && num != 3 && num != 2 {
 		return false
 	}
 	return true
 }
-// isUgly(99)
