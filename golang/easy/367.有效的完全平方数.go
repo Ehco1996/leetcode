@@ -1,5 +1,5 @@
-package main
-import "fmt"
+package easy
+
 /*
  * @lc app=leetcode.cn id=367 lang=golang
  *
@@ -32,17 +32,14 @@ import "fmt"
  *
  */
 func isPerfectSquare(num int) bool {
-	if num==1{
+	// 从 n/2 开始--测试
+	if num == 1 {
 		return true
 	}
-	for n := num / 2; n*n >= num;n-=1 {
-		if n*n == num{
+	for n := num / 2; n*n >= num; n -= 1 {
+		if n*n == num {
 			return true
 		}
 	}
 	return false
 }
-
-// func main(){
-// 	fmt.Println(isPerfectSquare(32))
-// }

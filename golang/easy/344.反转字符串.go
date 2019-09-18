@@ -1,4 +1,4 @@
-package main
+package easy
 
 /*
  * @lc app=leetcode.cn id=344 lang=golang
@@ -36,6 +36,7 @@ package main
  *
  */
 func reverseString(s []byte) {
+	// 双指针
 	for i, j := 0, len(s)-1; i < j; {
 		s[i], s[j] = s[j], s[i]
 		i++

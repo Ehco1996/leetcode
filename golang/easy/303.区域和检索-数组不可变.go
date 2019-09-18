@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=303 lang=golang
@@ -44,6 +42,7 @@ type NumArray struct {
 func Constructor(nums []int) NumArray {
 	s := []int{0}
 	sum := 0
+	// 累加计算结果
 	for _, num := range nums {
 		sum += num
 		s = append(s, sum)
@@ -52,13 +51,11 @@ func Constructor(nums []int) NumArray {
 		Nums: []int{},
 		Sums: s,
 	}
-
 }
 
 func (this *NumArray) SumRange(i int, j int) int {
 	// dp(i~j) = dp(j+1) - dp(i)
 	return this.Sums[j+1] - this.Sums[i]
-
 }
 
 /**

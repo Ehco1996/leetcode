@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=350 lang=golang
@@ -56,7 +54,7 @@ func intersectsort(nums1 []int, nums2 []int) []int {
 		num1 := nums1[i]
 		num2 := nums2[j]
 		if num1 == num2 {
-			h[num1] = 0
+			h[num1]++
 		}
 		i++
 	}
@@ -70,27 +68,17 @@ func intersectsort(nums1 []int, nums2 []int) []int {
 }
 
 func intersect(nums1 []int, nums2 []int) []int {
+	// 哈希记录出现的次数
 	m := make(map[int]int)
 	for _, n := range nums1 {
-		if count, ok := m[n]; !ok {
-			m[n] = 1
-		} else {
-			m[n] = count + 1
-		}
+		m[n]++
 	}
-
 	var res []int
 	for _, n := range nums2 {
-		if count, ok := m[n]; ok && count > 0 {
+		if c, ok := m[n]; ok && c > 0 {
 			res = append(res, n)
-			m[n] = count - 1
+			m[n]--
 		}
 	}
 	return res
 }
-
-// func main() {
-// 	nums1 := []int{2, 2, 3, 4, 5, 6}
-// 	nums2 := []int{1, 2, 2, 3, 9, 9, 9, 9, 9}
-// 	fmt.Println(intersect(nums1, nums2))
-// }

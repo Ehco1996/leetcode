@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=383 lang=golang
@@ -33,16 +33,17 @@
  *
  */
 func canConstruct(ransomNote string, magazine string) bool {
+	// 哈希
 	h := make(map[rune]int)
 	for _, c := range magazine {
 		h[c] += 1
 	}
 
 	for _, c := range ransomNote {
-		count, ok := h[c];
-	 	if ok&&count>0 {
-			h[c] -=1
-		}else{
+		count, ok := h[c]
+		if ok && count > 0 {
+			h[c] -= 1
+		} else {
 			return false
 		}
 	}

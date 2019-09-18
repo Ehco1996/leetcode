@@ -1,7 +1,4 @@
-package main
-
-import "fmt"
-
+package easy
 /*
  * @lc app=leetcode.cn id=326 lang=golang
  *
@@ -45,7 +42,8 @@ import "fmt"
  *
  */
 func isPowerOfThree(n int) bool {
-	if n ==1{
+	// 循环累加
+	if n == 1 {
 		return true
 	}
 	r := 1
@@ -58,7 +56,3 @@ func isPowerOfThree(n int) bool {
 	return false
 
 }
-
-// func main() {
-// 	fmt.Println(isPowerOfThree(19684))
-// }

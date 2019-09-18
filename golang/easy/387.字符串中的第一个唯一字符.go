@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=387 lang=golang
@@ -33,25 +33,24 @@
  *
  */
 func firstUniqChar(s string) int {
+	// 哈希
 	h := make(map[rune][]int)
-	for idx,c := range s{
-		h[c] = append(h[c],idx)
+	for idx, c := range s {
+		h[c] = append(h[c], idx)
 	}
 
-	minIdx := len(s) +1
+	minIdx := len(s) + 1
 
-	for _,v :=range h{
-		if len(v)==1&&v[0]<minIdx{
+	for _, v := range h {
+		if len(v) == 1 && v[0] < minIdx {
 			minIdx = v[0]
 		}
 	}
 
-	if minIdx == len(s)+1{
+	if minIdx == len(s)+1 {
 		return -1
-	}else{
+	} else {
 		return minIdx
 	}
-
-
 
 }

@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=345 lang=golang
@@ -46,11 +44,12 @@ func IsVowel(s byte) bool {
 }
 
 func reverseVowels(s string) string {
+	// 双指针
 	bs := []byte(s)
 
 	for i, j := 0, len(bs)-1; i < j; {
 
-		if IsVowel(bs[i]) &&IsVowel(bs[j]) {
+		if IsVowel(bs[i]) && IsVowel(bs[j]) {
 			bs[i], bs[j] = bs[j], bs[i]
 			i++
 			j--
@@ -64,7 +63,3 @@ func reverseVowels(s string) string {
 	}
 	return string(bs)
 }
-
-// func main() {
-// 	fmt.Println(reverseVowels("aA"))
-// }
