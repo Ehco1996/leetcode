@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=412 lang=golang
@@ -49,8 +49,8 @@
  *
  */
 func fizzBuzz(n int) []string {
+	// ???
 	res := []string{}
-
 	for num := 1; num <= n; num++ {
 		if num%3 == 0 && num%5 == 0 {
 			res = append(res, "FizzBuzz")

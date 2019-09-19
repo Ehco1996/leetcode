@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=389 lang=golang
@@ -38,22 +38,21 @@
  *
  */
 func findTheDifference(s string, t string) byte {
+	// hash
 	h := make(map[rune]int)
 
-	for _,r := range s{
-		h[r] +=1
+	for _, r := range s {
+		h[r] += 1
 	}
-
 	var res byte
+	for _, r := range t {
+		_, ok := h[r]
 
-	for _,r := range t{
-		_,ok := h[r]
-
-		if !ok || h[r]<1{
+		if !ok || h[r] < 1 {
 			res = byte(r)
 			break
-		}else{
-			h[r] -=1
+		} else {
+			h[r] -= 1
 		}
 
 	}

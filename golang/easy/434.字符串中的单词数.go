@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=434 lang=golang
@@ -26,24 +26,15 @@
  *
  *
  */
- func countSegments(s string) int {
+import "strings"
 
-	count := 1
-	found := false
-	for i := 0; i < len(s); i++ {
-		if i > 0 && string(s[i]) == " " && string(s[i-1]) != " " {
-			count++
-		}
-		if string(s[i]) != " " {
-			found = true
-		}
-		if i == len(s)-1 && string(s[i]) == " " {
-			count--
+func countSegments(s string) int {
+
+	c := 0
+	for _, str := range strings.Split(s, " ") {
+		if str != "" {
+			c++
 		}
 	}
-	if found {
-		return count
-	}
-	return 0
+	return c
 }
-

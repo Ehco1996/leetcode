@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=438 lang=golang
@@ -57,22 +57,21 @@
  *
  */
 
-
 func CopyMap(m map[rune]int) map[rune]int {
-    cp := make(map[rune]int)
-    for k, v := range m {
+	cp := make(map[rune]int)
+	for k, v := range m {
 		cp[k] = v
-    }
-    return cp
+	}
+	return cp
 }
 
-func helper(s string,h map[rune]int) bool{
+func helper(s string, h map[rune]int) bool {
 
-	for _,r := range s{
-		v,ok := h[r]
-		if !ok || v<1{
+	for _, r := range s {
+		v, ok := h[r]
+		if !ok || v < 1 {
 			return false
-		}else{
+		} else {
 			h[r]--
 		}
 	}
@@ -80,16 +79,17 @@ func helper(s string,h map[rune]int) bool{
 }
 
 func findAnagrams(s string, p string) []int {
+	// 滑动窗口 + hash判段
 	h := make(map[rune]int)
-	for _,r := range p{
+	for _, r := range p {
 		h[r]++
 	}
 
 	res := []int{}
 	lens := len(p)
-	for i:=0;i<=len(s)-lens;i++{
-		if helper(s[i:i+lens],CopyMap(h)){
-			res = append(res,i)
+	for i := 0; i <= len(s)-lens; i++ {
+		if helper(s[i:i+lens], CopyMap(h)) {
+			res = append(res, i)
 		}
 	}
 	return res

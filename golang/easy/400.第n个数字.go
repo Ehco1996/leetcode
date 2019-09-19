@@ -1,6 +1,4 @@
-// package easy
-import "strconv"
-import "math"
+package easy
 
 /*
  * @lc app=leetcode.cn id=400 lang=golang
@@ -47,33 +45,30 @@ import "math"
  *
  */
 
-
-func intPow(x,y int)int{
-	return int(math.Pow(float64(x),float64(y)))
+func intPow(x, y int) int {
+	return int(math.Pow(float64(x), float64(y)))
 }
 
- func findNthDigit(n int) int {
-
+func findNthDigit(n int) int {
 
 	// 找到第几个区间
 	i := 1
-	for n > i*intPow(10,i-1)*9 {
-		n-=i*(intPow(10,i-1))*9 //小于区间的值要减去，知道得到确定的区间
+	for n > i*intPow(10, i-1)*9 {
+		n -= i * (intPow(10, i-1)) * 9 //小于区间的值要减去，直到得到确定的区间
 		i++
 	}
 
 	// 找到这个数
-	num :=intPow(10,i-1) + (n-1)/i
-
+	num := intPow(10, i-1) + (n-1)/i
 	s := strconv.Itoa(num)
 	var idx int
-	if r:=n %i;r==0{
-		idx = i -1
-	}else{
-		idx = r-1
+	if r := n % i; r == 0 {
+		idx = i - 1
+	} else {
+		idx = r - 1
 	}
-
-	res,_ :=strconv.Atoi(string(s[idx]))
+	res, _ := strconv.Atoi(string(s[idx]))
 	return res
-
 }
+
+

@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=414 lang=golang
@@ -49,23 +49,26 @@
  *
  *
  */
+import "math"
+
 func thirdMax(nums []int) int {
-	one,two,three := -2147483649,-2147483649,-2147483649
-	for _,num := range nums{
-		if (num == one || num == two || num == three){
+	// 起是可以用最小堆（k=3）
+	one, two, three := math.MinInt32, math.MinInt32, math.MinInt32
+	for _, num := range nums {
+		if num == one || num == two || num == three {
 			continue
 		}
-		if num > one{
-			one,two,three = num,one,two
-		}else if num > two{
-			two,three = num,two
-		}else if num > three{
+		if num > one {
+			one, two, three = num, one, two
+		} else if num > two {
+			two, three = num, two
+		} else if num > three {
 			three = num
 		}
-		fmt.Println(one,two,three)
+		fmt.Println(one, two, three)
 	}
 
-	if three != -2147483649{
+	if three != math.MinInt32 {
 		return three
 	}
 	return one

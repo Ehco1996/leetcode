@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=404 lang=golang
@@ -41,27 +41,22 @@
  */
 
 func helper(root *TreeNode, sum *int, flag int) {
-    if root == nil {
-        return
-    }
-    helper(root.Left, sum, 1)
-    if root.Left == nil && root.Right == nil && flag == 1{
-        *sum += root.Val
-    }
-    helper(root.Right, sum, 2)
+	if root == nil {
+		return
+	}
+	helper(root.Left, sum, 1)
+	if root.Left == nil && root.Right == nil && flag == 1 {
+		*sum += root.Val
+	}
+	helper(root.Right, sum, 2)
 }
-
-
 
 func sumOfLeftLeaves(root *TreeNode) int {
-    var sum int
-    // flag 表是左节点还是右节点，1 左，2 右
-    helper(root, &sum, 0)
-    return sum
+	// flag 表是左节点还是右节点，1 左，2 右
+	var sum int
+	helper(root, &sum, 0)
+	return sum
 }
-
-
-
 
 //     3
 //   9   20

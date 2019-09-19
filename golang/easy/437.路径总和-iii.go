@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=437 lang=golang
@@ -52,38 +52,38 @@
  * }
  */
 
-func helper(node *TreeNode,target int,sums []int) int{
-	left :=0
-	right := 0
+func helper(node *TreeNode, target int, sums []int) int {
+	// 递归找到 到当前节点为止的每条路径的和
+	// 将当前节点作为起始节点放入path
 
 	temp := make([]int, len(sums))
-	for idx,last := range sums{
+	for idx, last := range sums {
 		temp[idx] = last + node.Val
 	}
-	temp= append(temp,node.Val)
+	temp = append(temp, node.Val)
 
-	if node.Left != nil{
-		left = helper(node.Left,target,temp)
+	left := 0
+	right := 0
+	if node.Left != nil {
+		left = helper(node.Left, target, temp)
+	}
+	if node.Right != nil {
+		right = helper(node.Right, target, temp)
 	}
 
-	if node.Right != nil{
-		right = helper(node.Right,target,temp)
-	}
-
-	count :=0
-	for _,sum := range temp{
-		if sum == target{
-			count ++
+	count := 0
+	for _, sum := range temp {
+		if sum == target {
+			count++
 		}
 	}
 	return count + left + right
 }
 
-
 func pathSum(root *TreeNode, sum int) int {
-	if root == nil{
+	if root == nil {
 		return 0
 	}
-	return helper(root,sum,[]int{})
+	return helper(root, sum, []int{})
 
 }

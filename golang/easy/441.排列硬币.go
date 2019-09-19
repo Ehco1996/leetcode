@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=441 lang=golang
@@ -50,11 +50,12 @@
  *
  */
 func arrangeCoins(n int) int {
+	// 累加就可以了
 	m := 0
 	c := 0
-	for m < n{
-		if n-m>c{
-			c ++
+	for m < n {
+		if n-m > c {
+			c++
 		}
 		m += c
 	}

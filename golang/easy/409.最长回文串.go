@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=409 lang=golang
@@ -37,25 +37,25 @@
  *
  */
 func longestPalindrome(s string) int {
+	// hash 是串不是子串
+	// 勾陈回文串的条件  双数 / 单数中取最大双数 / 最大的单数对可以放串中间
 	h := make(map[rune]int)
-	for _,c := range s{
-		h[c]+=1
+	for _, c := range s {
+		h[c] += 1
 	}
 	c := 0
-	fmax :=0
-	for _,v := range h{
-		if v % 2==0{
+	fmax := 0
+	for _, v := range h {
+		if v%2 == 0 {
 			c += v
-		}else if v > fmax{
+		} else if v > fmax {
 			c += fmax / 2 * 2
 			fmax = v
-		}else{
+		} else {
 			c += v / 2 * 2
 		}
 	}
 
 	return c + fmax
 
-
 }
-
