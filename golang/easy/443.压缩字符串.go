@@ -1,4 +1,8 @@
-// package golang
+// package easy
+
+import (
+	"strconv"
+)
 
 /*
  * @lc app=leetcode.cn id=443 lang=golang
@@ -78,37 +82,28 @@
  *
  *
  */
- func assignCount(target []byte, count int) int {
-	if count == 1 {
-		// no need to assign
-		return 0
-	}
-	countStr := strconv.Itoa(count)
-	for i, v := range countStr {
-		target[i] = byte(v)
-	}
-	return len(countStr)
-}
 
 func compress(chars []byte) int {
-	count := 1    // count of consecutive character
-	lastIdx := 0 // index of result chars
-	chars[lastIdx] = chars[0]
-
-	for i := 1; i < len(chars); i++ {
-		if chars[lastIdx] != chars[i] {
-			// new character
-			lastIdx++
-			lastIdx = lastIdx + assignCount(chars[lastIdx:], count)
-			chars[lastIdx] = chars[i]
-			count = 1
-		} else {
-			// same character
-			count++
+	// 双指针+滑动窗口
+	size := 0
+	lens := len(chars)
+	// 由于最后一个字符也需要判断，所以将右指针终点放到数组之外一格
+	for l, r := 0, 0; r <= lens; r++ {
+		// 当遍历完成，或右指针元素不等于左指针元素时，更新数组
+		if r == lens || chars[r] != chars[l] {
+			// 更新字符
+			chars[size] = chars[l]
+			size++
+			// 更新计数，当个数大于 1 时才更新
+			if r-l > 1 {
+				for _, b := range []byte(strconv.Itoa(r - l)) {
+					chars[size] = b
+					size++
+				}
+			}
+			// 挪动左指针
+			l = r
 		}
 	}
-	lastIdx++
-	lastIdx = lastIdx + assignCount(chars[lastIdx:], count)
-
-	return lastIdx
+	return size
 }

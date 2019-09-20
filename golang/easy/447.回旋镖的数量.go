@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=447 lang=golang
@@ -34,27 +34,26 @@
  *
  *
  */
-func dist(x,y []int) int{
+func dist(x, y []int) int {
 	return (x[0]-y[0])*(x[0]-y[0]) + (x[1]-y[1])*(x[1]-y[1])
 }
 
-
- func numberOfBoomerangs(points [][]int) int {
+func numberOfBoomerangs(points [][]int) int {
 	//两重循环，用 hash 表记录出现过的距离
 	//遍历每个点和它所有点的距离，用 hash 表记录，如果出现重复的，说明可以形成“回旋镖”
 
 	count := 0
-	for i:=0;i<len(points);i++{
+	for i := 0; i < len(points); i++ {
 		// k:distance v: number of the point
 		dis := make(map[int]int)
-		for j:=0;j<len(points);j++{
-			if j!=i{
-				dis[dist(points[i],points[j])] +=1
+		for j := 0; j < len(points); j++ {
+			if j != i {
+				dis[dist(points[i], points[j])] += 1
 			}
 		}
-		for _,v := range dis{
+		for _, v := range dis {
 			//计算排列组合公式 n * (n - 1)
-			count += v*(v-1)
+			count += v * (v - 1)
 		}
 	}
 	return count

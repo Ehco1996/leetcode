@@ -1,4 +1,4 @@
-// package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=459 lang=golang
@@ -46,8 +46,8 @@
  *
  *
  */
- func repeatedSubstringPattern(s string) bool {
-	 // 滑动窗口
+func repeatedSubstringPattern(s string) bool {
+	// 滑动窗口
 	if len(s) < 2 {
 		return false
 	}
@@ -64,7 +64,7 @@
 			end += len(p)
 		}
 
-		if end == len(s)&& s[start:end] == p{
+		if end == len(s) && s[start:end] == p {
 			return true
 		}
 	}

@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"sort"
-)
+package easy
 
 /*
  * @lc app=leetcode.cn id=475 lang=golang
@@ -69,7 +64,6 @@ func findRadius(houses []int, heaters []int) int {
 	lastHeaderIdx := 0
 
 	for i := 0; i < len(houses); i++ {
-
 		idx := lastHeaderIdx
 		NowDis := dist(houses[i], heaters[idx])
 		for idx+1 < len(heaters) {

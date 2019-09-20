@@ -1,5 +1,7 @@
-// package golang
+package easy
+
 import "sort"
+
 /*
  * @lc app=leetcode.cn id=455 lang=golang
  *
@@ -52,25 +54,25 @@ import "sort"
  *
  */
 func findContentChildren(g []int, s []int) int {
+	// 优先给胃口小的孩子分配
 	sort.Ints(g)
 	sort.Ints(s)
-
-	c :=0
-	for _,w := range g{
+	c := 0
+	for _, w := range g {
 		found := false
-		for i:=0;i<len(s);i++{
-			if s[i]>=w{
-				c+=1
+		for i := 0; i < len(s); i++ {
+			if s[i] >= w {
+				c += 1
 				found = true
-				if i+1<len(s){
+				if i+1 < len(s) {
 					s = s[i+1:]
-				}else{
+				} else {
 					s = []int{}
 				}
 				break
 			}
 		}
-		if !found{
+		if !found {
 			break
 		}
 	}

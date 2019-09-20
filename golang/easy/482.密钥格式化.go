@@ -1,4 +1,4 @@
-// package easy
+package easy
 
 /*
  * @lc app=leetcode.cn id=482 lang=golang
@@ -55,37 +55,10 @@
  *
  *
  */
-// func licenseKeyFormatting1(S string, K int) string {
-// 	var res string
-
-// 	count := K
-
-// 	for i := 0; i < len(S); i++ {
-// 		now := string(S[i])
-// 		if now != "-" && count > 0 {
-// 			res += now
-// 			count--
-// 			if count == 0 && i != (len(S)-1) {
-// 				res += "-"
-// 				count = K
-// 			}
-// 		}
-// 	}
-
-// 	for i := len(res) - 1; i >= 0; i-- {
-// 		now := string(res[i])
-// 		if now == "-" {
-// 			res = res[i+1:] + "-" + res[:i]
-// 			break
-// 		}
-// 	}
-// 	return res
-// }
 
 func licenseKeyFormatting(S string, K int) string {
-
+	// 直接写
 	var s string
-
 	for _, c := range S {
 		now := string(c)
 		if now != "-" {

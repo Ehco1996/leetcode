@@ -1,5 +1,7 @@
-// package golang
+package easy
+
 import "sort"
+
 /*
  * @lc app=leetcode.cn id=453 lang=golang
  *
@@ -34,17 +36,16 @@ import "sort"
  *
  */
 
-
 func minMoves(nums []int) int {
-	if len(nums)==0 || len(nums)==1{
+	// 每个元素需要增加diff：now-min 次才能使得数组平衡
+	if len(nums) == 0 || len(nums) == 1 {
 		return 0
 	}
-
-	c :=0
+	c := 0
 	sort.Ints(nums)
-	for i:=len(nums)-1;i>0;i--{
-		// diff = max - min
-		c += nums[i] - nums[0]
+	min := nums[0]
+	for i := len(nums) - 1; i > 0; i-- {
+		c += nums[i] - min
 	}
 	return c
 }

@@ -1,4 +1,4 @@
-// package easy
+package easy
 
 /*
  * @lc app=leetcode.cn id=485 lang=golang
@@ -34,6 +34,7 @@
  *
  */
 func findMaxConsecutiveOnes(nums []int) int {
+	// 直接写
 	max := 0
 	nowmax := 0
 	for _, num := range nums {

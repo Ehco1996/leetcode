@@ -1,6 +1,4 @@
-// package main
-
-import "fmt"
+package easy
 
 /*
  * @lc app=leetcode.cn id=463 lang=golang
@@ -69,7 +67,7 @@ func (b *Boards) GetOrCreatePoint(x, y int) *Point {
 	}
 	if 0 <= x && x < len(b.Grid) && 0 <= y && y < len(b.Grid[x]) {
 		b.Hash[key] = NewPoint(x, y, b.Grid[x][y] == 1)
-	}else{
+	} else {
 		b.Hash[key] = NewPoint(x, y, false)
 	}
 	return b.Hash[key]
@@ -107,6 +105,8 @@ func (b *Boards) Visit(p *Point) {
 }
 
 func islandPerimeter(grid [][]int) int {
+	// 暴力算的
+	// 但可以这样解 由于岛屿内没有湖,所以只需要求出 北面(或南面) + 西面(或东面)的长度再乘2即可
 	b := &Boards{
 		Hash: make(map[string]*Point),
 		Grid: grid,
@@ -127,16 +127,3 @@ func islandPerimeter(grid [][]int) int {
 	}
 	return res
 }
-
-
-// func main() {
-
-// 	grid := [][]int{
-// 		{0, 1, 0, 0},
-// 		{1, 1, 1, 0},
-// 		{0, 1, 0, 0},
-// 		{1, 1, 0, 0}}
-
-
-// 	fmt.Println(islandPerimeter(grid))
-// }

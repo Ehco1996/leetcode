@@ -1,4 +1,4 @@
-// /package golang
+package easy
 
 /*
  * @lc app=leetcode.cn id=448 lang=golang
@@ -34,17 +34,17 @@
  */
 func findDisappearedNumbers(nums []int) []int {
 	// 用递增数组近似哈希表
-	h := make([]int,len(nums))
+	h := make([]int, len(nums))
 
-	for _,num :=range nums{
+	for _, num := range nums {
 		h[num-1] = 1
 	}
 
 	res := []int{}
 
-	for idx,v := range h{
-		if v==0{
-			res = append(res,idx+1)
+	for idx, v := range h {
+		if v == 0 {
+			res = append(res, idx+1)
 		}
 	}
 	return res
