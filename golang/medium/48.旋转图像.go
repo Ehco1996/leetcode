@@ -86,13 +86,4 @@ func rotate(matrix [][]int) {
 	}
 }
 
-func lrotate(matrix [][]int) {
-	// 顺时针旋转矩阵
-	// 先上下翻转，再转置。
-	transpose(matrix)
-	for i := 0; i < len(matrix); i++ {
-		reverse(matrix[i])
-	}
-}
-
 
