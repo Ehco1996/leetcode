@@ -1,4 +1,4 @@
-// package easy
+package easy
 
 import "math"
 
@@ -47,35 +47,13 @@ import "math"
  *
  *
  */
-func constructRectangle1(area int) []int {
-	l := 1
-	r := area
 
-	for l <= r && l*r == area {
-		last := l
-		for add := 1; l+add < r; add++ {
-			if area%(l+add) == 0 {
-				l += add
-				r = area / l
-				break
-			}
-		}
-		if l == last {
-			break
-		}
-	}
-
-	if l > r {
-		return []int{l, r}
-	} else {
-		return []int{r, l}
-	}
-}
 func sqrt(x int) int {
 	return int(math.Sqrt(float64(x)))
 }
 
 func constructRectangle(area int) []int {
+	// 从 sqrt/area 开始往下找
 
 	res := sqrt(area)
 

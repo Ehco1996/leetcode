@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=504 lang=golang
  *
@@ -35,6 +37,7 @@
 import "strconv"
 
 func convertToBase7(num int) string {
+	// 不断除7 注意正负号
 	if num == 0 {
 		return strconv.Itoa(num)
 	}
@@ -54,4 +57,3 @@ func convertToBase7(num int) string {
 	}
 	return res
 }
-

@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=501 lang=golang
  *
@@ -59,40 +61,9 @@
 // 	return weight + right + left
 // }
 
-func findMode1(root *TreeNode) []int {
-	var queue []*TreeNode
-	var result []int
-	var records = map[int]int{}
-	var maxCount = 0
-
-	if root == nil {
-		return result
-	}
-
-	queue = append(queue, root)
-
-	for node := root; len(queue) != 0; {
-		node, queue = queue[0], queue[1:]
-
-		if node != nil {
-			records[node.Val]++
-			queue = append(queue, node.Right, node.Left)
-			if records[node.Val] > maxCount {
-				maxCount = records[node.Val]
-			}
-		}
-	}
-
-	for ele, times := range records {
-		if times == maxCount {
-			result = append(result, ele)
-		}
-	}
-
-	return result
-}
 
 func findMode(root *TreeNode) []int {
+	// 先序遍历
 	var result []int
 	var maxCount = 0
 	var commonNum int

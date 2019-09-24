@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=520 lang=golang
  *
@@ -45,6 +47,7 @@
 import "strings"
 
 func detectCapitalUse(word string) bool {
+	// 找规律 要么全大写 要么全小写 要么第一个字母大写
 	upCnt := 0
 	firstIsUpper := false
 
@@ -60,4 +63,3 @@ func detectCapitalUse(word string) bool {
 	return len(word) == upCnt || upCnt == 0 || (upCnt == 1 && firstIsUpper)
 
 }
-

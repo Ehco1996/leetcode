@@ -1,3 +1,5 @@
+package easy
+
 import "strings"
 
 /*
@@ -40,6 +42,7 @@ import "strings"
  */
 
 func findWords(words []string) []string {
+	// 哈希
 	res := []string{}
 
 	h := map[string]int{
@@ -88,4 +91,3 @@ func findWords(words []string) []string {
 	}
 	return res
 }
-

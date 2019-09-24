@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=496 lang=golang
  *
@@ -46,39 +48,9 @@
  *
  *
  */
-func nextGreaterElement1(nums1 []int, nums2 []int) []int {
-	if len(nums1) < 1 {
-		return []int{}
-	}
-	res := make([]int, len(nums1))
-	h := make(map[int]int)
-
-	for idx, num := range nums2 {
-		if idx == len(nums2)-1 {
-			h[num] = -1
-			break
-		}
-
-		found := false
-		for _, n := range nums2[idx+1:] {
-			if n > num {
-				h[num] = n
-				found = true
-				break
-			}
-		}
-		if !found {
-			h[num] = -1
-		}
-	}
-
-	for idx, num := range nums1 {
-		res[idx] = h[num]
-	}
-	return res
-}
 
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
+	// 哈希 + 栈
 	if len(nums1) < 1 {
 		return []int{}
 	}
@@ -87,6 +59,7 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 	h := make(map[int]int)
 	stack := []int{}
 
+	// 找到nums2中每一个比当前元素大的值
 	for _, num := range nums2 {
 		for len(stack) > 0 && stack[len(stack)-1] < num {
 			h[stack[len(stack)-1]] = num
@@ -94,6 +67,7 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 		}
 		stack = append(stack, num)
 	}
+
 	// fmt.Println(stack, h)
 	for idx, num := range nums1 {
 		if h[num] > 0 {
@@ -104,4 +78,3 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 	}
 	return res
 }
-

@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=507 lang=golang
  *
@@ -34,6 +36,7 @@
  *
  */
 func checkPerfectNumber(num int) bool {
+	// 双指针 从两头找因数并计算和
 	if num == 1 {
 		return false
 	}
@@ -59,4 +62,3 @@ func checkPerfectNumber(num int) bool {
 	}
 	return sum == num
 }
-

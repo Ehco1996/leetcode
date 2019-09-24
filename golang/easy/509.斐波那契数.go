@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=509 lang=golang
  *
@@ -54,6 +56,7 @@
  *
  */
 func fib(N int) int {
+	//  递归
 	if N == 0 {
 		return 0
 	}
@@ -63,4 +66,3 @@ func fib(N int) int {
 	return fib(N-1) + fib(N-2)
 
 }
-
