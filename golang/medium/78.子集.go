@@ -34,7 +34,8 @@
  *
  */
 
-func subsets(nums []int) [][]int {
+func subsets1(nums []int) [][]int {
+	// 迭代
 	res := [][]int{}
 	size := len(nums)
 	if size == 0 {
@@ -51,3 +52,29 @@ func subsets(nums []int) [][]int {
 	return res
 }
 
+func subsets(nums []int) [][]int {
+	// 回溯
+	res := [][]int{}
+	size := len(nums)
+	if size == 0 {
+		return res
+	}
+	sort.Ints(nums)
+
+	path := []int{}
+	helper(nums, 0, path, &res)
+	return res
+
+}
+
+func helper(nums []int, start int, path []int, res *[][]int) {
+	t := make([]int, len(path))
+	copy(t, path)
+	*res = append(*res, t)
+
+	for i := start; i < len(nums); i++ {
+		path = append(path, nums[i])
+		helper(nums, i+1, path, res)
+		path = path[:len(path)-1]
+	}
+}
