@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=563 lang=golang
  *
@@ -59,6 +61,7 @@ func abs(a int) int {
 }
 
 func findTilt(root *TreeNode) int {
+	// 遍历
 	tiltSum := 0
 
 	var traverse func(node *TreeNode) int
@@ -74,4 +77,3 @@ func findTilt(root *TreeNode) int {
 	traverse(root)
 	return tiltSum
 }
-

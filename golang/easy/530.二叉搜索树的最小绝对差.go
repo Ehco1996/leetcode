@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=530 lang=golang
  *
@@ -81,4 +83,3 @@ func getMinimumDifference(root *TreeNode) int {
 	inOrder(root)
 	return nowMin
 }
-

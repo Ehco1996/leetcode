@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=551 lang=golang
  *
@@ -39,6 +41,7 @@
  *
  */
 func checkRecord(s string) bool {
+	// 字符串
 	aCnt := 0
 	lCcnt := 0
 
@@ -61,4 +64,3 @@ func checkRecord(s string) bool {
 	}
 	return true
 }
-

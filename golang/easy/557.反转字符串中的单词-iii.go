@@ -1,4 +1,4 @@
-// package easy
+package easy
 
 /*
  * @lc app=leetcode.cn id=557 lang=golang
@@ -37,8 +37,8 @@ func reverse(b []byte) {
 }
 
 func reverseWords(s string) string {
+	// 双指针
 	sb := []byte(s)
-
 	last := 0
 	for i := 0; i < len(sb); i++ {
 		if string(sb[i]) == " " {

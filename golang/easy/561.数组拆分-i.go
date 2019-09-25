@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=561 lang=golang
  *
@@ -44,6 +46,7 @@ func min(a, b int) int {
 }
 
 func arrayPairSum(nums []int) int {
+	// 排序后相邻的元素组成一对
 	sort.Ints(nums)
 	sum := 0
 	for i := 0; i < len(nums); i += 2 {
@@ -51,4 +54,3 @@ func arrayPairSum(nums []int) int {
 	}
 	return sum
 }
-

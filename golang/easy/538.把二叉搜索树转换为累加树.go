@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=538 lang=golang
  *
@@ -40,7 +42,7 @@
  * }
  */
 func convertBST(root *TreeNode) *TreeNode {
-
+	// 从数的右下角开始累加
 	sum := 0
 	visit := func(node *TreeNode) {
 		node.Val += sum
@@ -59,4 +61,3 @@ func convertBST(root *TreeNode) *TreeNode {
 	lastOrder(root)
 	return root
 }
-

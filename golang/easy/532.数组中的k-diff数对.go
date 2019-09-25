@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=532 lang=golang
  *
@@ -55,6 +57,7 @@ import "sort"
 import "strconv"
 
 func findPairs(nums []int, k int) int {
+	// On 哈希一次遍历
 	if len(nums) <= 1 {
 		return 0
 	}
@@ -72,4 +75,3 @@ func findPairs(nums []int, k int) int {
 	}
 	return len(s)
 }
-

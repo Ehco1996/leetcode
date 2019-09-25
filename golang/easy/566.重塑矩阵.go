@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=566 lang=golang
  *
@@ -84,4 +86,3 @@ func matrixReshape(nums [][]int, r int, c int) [][]int {
 	}
 	return res
 }
-

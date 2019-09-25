@@ -42,6 +42,7 @@ func reverse(b []byte) {
 	}
 }
 func reverseStr(s string, k int) string {
+	// 间隔2k
 	sb := []byte(s)
 	for i := 0; i < len(sb); i = i + 2*k {
 		if i+k < len(sb) {
