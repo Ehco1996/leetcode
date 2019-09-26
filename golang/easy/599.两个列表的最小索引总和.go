@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=599 lang=golang
  *
@@ -49,6 +51,7 @@
  *
 */
 func findRestaurant(list1 []string, list2 []string) []string {
+	// 哈希
 	h := make(map[string]int)
 	for idx, c := range list1 {
 		h[c] = idx
@@ -70,4 +73,3 @@ func findRestaurant(list1 []string, list2 []string) []string {
 
 	return res
 }
-

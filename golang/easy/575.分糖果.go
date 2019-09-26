@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=575 lang=golang
  *
@@ -45,6 +47,7 @@
  *
  */
 func distributeCandies(candies []int) int {
+	// 哈希
 	h := make(map[int]int)
 	for _, c := range candies {
 		h[c]++
@@ -55,4 +58,3 @@ func distributeCandies(candies []int) int {
 	}
 	return len(h)
 }
-

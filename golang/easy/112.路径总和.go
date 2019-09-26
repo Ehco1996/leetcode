@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=112 lang=golang
  *
@@ -68,7 +70,3 @@ func helper(node *TreeNode, now int, sum int) bool {
 	}
 	return helper(node.Left, now, sum) || helper(node.Right, now, sum)
 }
-
-
-
-

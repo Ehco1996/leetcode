@@ -1,4 +1,7 @@
+package easy
+
 /*
+
  * @lc app=leetcode.cn id=605 lang=golang
  *
  * [605] 种花问题
@@ -65,4 +68,3 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 	fmt.Println(num)
 	return num >= n
 }
-

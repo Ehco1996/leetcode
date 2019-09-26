@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=594 lang=golang
  *
@@ -29,6 +31,7 @@
  *
  */
 func findLHS(nums []int) int {
+	// 哈希
 	if len(nums) <= 1 {
 		return 0
 	}
@@ -45,4 +48,3 @@ func findLHS(nums []int) int {
 	}
 	return cnt
 }
-

@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=606 lang=golang
  *
@@ -63,6 +65,7 @@
 import "strconv"
 
 func tree2str(t *TreeNode) string {
+	// 递归
 	if t == nil {
 		return ""
 	}

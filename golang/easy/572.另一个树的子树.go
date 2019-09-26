@@ -1,3 +1,4 @@
+package easy
 /*
  * @lc app=leetcode.cn id=572 lang=golang
  *
@@ -71,6 +72,7 @@
  */
 
 func isSametree(s *TreeNode, t *TreeNode) bool {
+    // 标准的递归
 	if s == nil && t == nil {
 		return true
 	}

@@ -1,4 +1,4 @@
-// package easy
+package easy
 
 /*
  * @lc app=leetcode.cn id=581 lang=golang
@@ -41,9 +41,7 @@ func findUnsortedSubarray(nums []int) int {
 	// 先排序后找不同
 
 	sortedNums := make([]int, len(nums))
-	for idx, num := range nums {
-		sortedNums[idx] = num
-	}
+	copy(sortedNums,nums)
 	sort.Ints(sortedNums)
 
 	p1 := 0

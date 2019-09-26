@@ -1,3 +1,5 @@
+package easy
+
 /*
  * @lc app=leetcode.cn id=598 lang=golang
  *
@@ -68,4 +70,3 @@ func maxCount(m int, n int, ops [][]int) int {
 	}
 	return m * n
 }
-
