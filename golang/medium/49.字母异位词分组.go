@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=49 lang=golang
  *
@@ -60,4 +62,3 @@ func groupAnagrams(strs []string) [][]string {
 	}
 	return res
 }
-

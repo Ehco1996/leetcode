@@ -29,6 +29,7 @@
 import "sort"
 
 func permuteUnique(nums []int) [][]int {
+	// 迭代的方式 注意去重
 	res := [][]int{}
 	if len(nums) == 0 {
 		return res

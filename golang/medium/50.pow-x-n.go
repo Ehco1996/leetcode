@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=50 lang=golang
  *
@@ -43,6 +45,7 @@
  */
 
 func fastPow(x float64, n int) float64 {
+	// 分解递归
 	// x ^ {a + b} = x ^ a * x ^ bx
 	if n == 0 {
 		return 1.0
@@ -64,4 +67,3 @@ func myPow(x float64, n int) float64 {
 	return fastPow(x, N)
 
 }
-

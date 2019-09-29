@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=48 lang=golang
  *
@@ -85,5 +87,3 @@ func rotate(matrix [][]int) {
 		reverse(matrix[i])
 	}
 }
-
-
