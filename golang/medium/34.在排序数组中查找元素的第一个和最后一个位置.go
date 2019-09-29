@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=34 lang=golang
  *
@@ -32,6 +34,7 @@
  */
 
 func searchRange(nums []int, target int) []int {
+	// 二分
 
 	res := []int{}
 	for l, r := 0, len(nums)-1; l <= r; {
@@ -61,4 +64,3 @@ func searchRange(nums []int, target int) []int {
 	return []int{-1, -1}
 
 }
-

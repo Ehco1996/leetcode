@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=33 lang=golang
  *
@@ -36,6 +38,7 @@
  *
  */
 func search(nums []int, target int) int {
+	// 两次二分查找，一次二分找到旋转点，另外一次找到目标值
 	var bs func(l, r int) int
 	bs = func(l, r int) int {
 		for l <= r {
@@ -95,4 +98,3 @@ func search(nums []int, target int) int {
 	}
 	return bs(0, rotateIndex)
 }
-

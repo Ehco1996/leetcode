@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=40 lang=golang
  *
@@ -49,6 +51,7 @@
 import "sort"
 
 func combinationSum2(candidates []int, target int) [][]int {
+	// dfs 加剪枝 注意去重
 	res := [][]int{}
 	if len(candidates) == 0 {
 		return res
@@ -69,6 +72,7 @@ func combinationSum2(candidates []int, target int) [][]int {
 		// walkthrough
 		for i := startIdx; i < len(candidates); i++ {
 			if i != startIdx && candidates[i] == candidates[i-1] {
+				// 这个数和上个数一样的情况 剪枝
 				continue
 			}
 			sum += candidates[i]
@@ -81,4 +85,3 @@ func combinationSum2(candidates []int, target int) [][]int {
 	dfs(0, path, 0, target)
 	return res
 }
-

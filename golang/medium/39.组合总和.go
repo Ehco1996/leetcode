@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=39 lang=golang
  *
@@ -48,6 +50,7 @@
 import "sort"
 
 func combinationSum(candidates []int, target int) [][]int {
+	// dfs
 	res := [][]int{}
 	if len(candidates) == 0 {
 		return res
@@ -76,4 +79,3 @@ func combinationSum(candidates []int, target int) [][]int {
 	dfs(0, path, 0, target)
 	return res
 }
-

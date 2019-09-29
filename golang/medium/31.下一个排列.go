@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=31 lang=golang
  *
@@ -28,6 +30,7 @@
 import "sort"
 
 func nextPermutation(nums []int) {
+	// 从后向前找，找到第一个比最后一个数要小的数，交换两数的位置，然后将这个数往后的所有数升序排列
 	if len(nums) <= 1 {
 		return
 	}
