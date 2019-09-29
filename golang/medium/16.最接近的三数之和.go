@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=16 lang=golang
  *
@@ -33,6 +35,7 @@ func abs(a, b int) int {
 }
 
 func threeSumClosest(nums []int, target int) int {
+	// 滑动窗口，从两边向中间收
 	sort.Ints(nums)
 	res := math.MaxInt32
 	for i := 0; i < len(nums)-2; i++ {
@@ -40,7 +43,6 @@ func threeSumClosest(nums []int, target int) int {
 		right := len(nums) - 1
 		for left < right {
 			sum := nums[left] + nums[right] + nums[i]
-			fmt.Println(i, left, right, sum)
 			if abs(sum, target) < abs(res, target) {
 				res = sum
 			}
@@ -55,4 +57,3 @@ func threeSumClosest(nums []int, target int) int {
 	}
 	return res
 }
-

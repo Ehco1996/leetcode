@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=15 lang=golang
  *
@@ -31,6 +33,7 @@
 import "sort"
 
 func threeSum(nums []int) [][]int {
+	// 滑动窗口，从两边向中间收
 	var results [][]int
 	sort.Ints(nums)
 	for i := 0; i < len(nums)-2; i++ {
@@ -61,4 +64,3 @@ func threeSum(nums []int) [][]int {
 	}
 	return results
 }
-

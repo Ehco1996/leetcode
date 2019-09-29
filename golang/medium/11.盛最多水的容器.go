@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=11 lang=golang
  *
@@ -50,6 +52,7 @@ func calc(leftIdx, leftVal, rightIdx, rightVal int) int {
 }
 
 func maxArea(height []int) int {
+	// 滑动窗口 短变向长边方向移动
 	area := 0
 	for leftIdx, rightIdx := 0, len(height)-1; leftIdx < rightIdx; {
 		now := calc(leftIdx, height[leftIdx], rightIdx, height[rightIdx])

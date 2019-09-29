@@ -32,7 +32,7 @@
  *
  */
 func letterCombinations(digits string) []string {
-	// 层序遍历...以一个种子为起点 一层一层往下排列组合
+	// dfs
 	if digits == "" {
 		return []string{}
 	}
@@ -48,24 +48,18 @@ func letterCombinations(digits string) []string {
 		"9": []string{"w", "x", "y", "z"},
 	}
 
+	lens := len(digits)
 	res := []string{}
-	buckets := make([][]string, len(digits))
-	for idx, s := range digits {
-		buckets[idx] = h[string(s)]
-	}
-	bucket := buckets[0]
-	for _, s := range bucket {
-		temp := []string{s}
-		for _, lastBucket := range buckets[1:] {
-			temp2 := []string{}
-			for _, t := range temp {
-				for _, b := range lastBucket {
-					temp2 = append(temp2, t+b)
-				}
-			}
-			temp = temp2
+	var dfs func(i int, path string)
+	dfs = func(i int, path string) {
+		if i == lens {
+			res = append(res, path)
+			return
 		}
-		res = append(res, temp...)
+		for _, alp := range h[string(digits[i])] {
+			dfs(i+1, path+alp)
+		}
 	}
+	dfs(0, "")
 	return res
 }
