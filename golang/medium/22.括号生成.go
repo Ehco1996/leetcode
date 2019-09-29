@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=22 lang=golang
  *
@@ -28,29 +30,24 @@
  *
  */
 func generateParenthesis(n int) []string {
-	// n = 1  ()
-	// n = 2  ()() / (())
-	// n = 3  ()()() / (())() / ()(()) / ((())) / (()())/
-
-	last := []string{"()"}
-	for i := 2; i <= n; i++ {
-		temp := []string{}
-		for _, now := range last {
-			for idx := 0; idx <= len(now); idx++ {
-				temp = append(temp, now[:idx]+"()"+now[idx:])
-			}
-		}
-		last = temp
-	}
-	res := []string{}
+	// dfs
 	h := make(map[string]int)
-	for _, pad := range last {
-		if _, ok := h[pad]; !ok {
-			res = append(res, pad)
-			h[pad]++
+	var dfs func(path string)
+	dfs = func(path string) {
+		if len(path) == 2*n {
+			h[path]++
+			return
 		}
+		for idx, _ := range path {
+			dfs(path[:idx] + "()" + path[idx:])
+		}
+	}
+
+	res := []string{}
+	dfs("()")
+	for p, _ := range h {
+		res = append(res, p)
 	}
 	return res
 
 }
-

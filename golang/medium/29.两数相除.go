@@ -1,4 +1,4 @@
-// package medium
+package medium
 
 /*
  * @lc app=leetcode.cn id=29 lang=golang
@@ -51,6 +51,7 @@ func toPositive(num int) int {
 }
 
 func toNegative(num int) int {
+	// 除法变成减法
 	if num < 0 {
 		return num
 	}

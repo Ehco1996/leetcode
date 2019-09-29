@@ -1,4 +1,4 @@
-// package medium
+package medium
 
 /*
  * @lc app=leetcode.cn id=18 lang=golang
@@ -39,6 +39,7 @@
 import "sort"
 
 func fourSum(nums []int, target int) [][]int {
+	// 滑动窗口 hash去重
 	res := [][]int{}
 	if len(nums) < 4 {
 		return res

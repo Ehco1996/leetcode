@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=19 lang=golang
  *
@@ -39,6 +41,7 @@
  * }
  */
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
+	// 全拿出来再存
 	nodes := []*ListNode{}
 	for node := head; node != nil; node = node.Next {
 		nodes = append(nodes, node)
@@ -46,7 +49,6 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 
 	if len(nodes)-n == 0 {
 		return head.Next
-
 	} else {
 		pre := nodes[len(nodes)-n-1]
 		target := nodes[len(nodes)-n]
@@ -54,4 +56,3 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	}
 	return head
 }
-
