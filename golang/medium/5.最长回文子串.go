@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=5 lang=golang
  *
@@ -65,5 +67,3 @@ func longestPalindrome(s string) string {
 	}
 	return res
 }
-
-

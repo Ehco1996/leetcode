@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=6 lang=golang
  *
@@ -68,4 +70,3 @@ func convert(s string, numRows int) string {
 	}
 	return ret
 }
-

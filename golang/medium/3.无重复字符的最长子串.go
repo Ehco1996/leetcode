@@ -1,3 +1,5 @@
+// package medium
+
 /*
  * @lc app=leetcode.cn id=3 lang=golang
  *
@@ -38,29 +40,34 @@
  *
  *
  */
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
 func lengthOfLongestSubstring(s string) int {
+	// 滑动窗口 + hash 来确定改字母是否访问过
 	if len(s) <= 1 {
 		return len(s)
 	}
 
-	max := 0
+	res := 0
 	h := make(map[byte]int)
 
 	for left, right := 0, 0; left <= right && right < len(s); {
 		v, ok := h[s[right]]
 		if v == 0 || !ok {
 			h[s[right]]++
-			// 右移
 			right++
-			fmt.Println(s[left:right])
-			if l := len(s[left:right]); l > max {
-				max = l
-			}
+			res = max(res, len(s[left:right]))
 		} else {
+			// 左边窗口右移 直到满足要求
 			h[s[left]]--
 			left++
 		}
 	}
-	return max
+	return res
 }
-

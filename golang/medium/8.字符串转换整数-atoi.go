@@ -1,4 +1,4 @@
-// package medium
+package medium
 
 /*
  * @lc app=leetcode.cn id=8 lang=golang
@@ -71,49 +71,43 @@
  *
  */
 import (
-	"strconv"
-	"unicode"
+	"math"
+	"strings"
 )
 
+var mapInt = func() map[rune]int {
+	var result = make(map[rune]int)
+	for i, c := range "0123456789" {
+		result[c] = i
+	}
+	return result
+}()
+
 func myAtoi(str string) int {
-	ret := ""
-	f := 1
-	foundSign := 0
-	// foundBlank := 0
+	result := 0
+	sign := 1
+	str = strings.TrimSpace(str)
+	if len(str) == 0 {
+		return 0
+	}
+	if str[:1] == "+" || str[:1] == "-" {
+		if str[:1] == "-" {
+			sign = -1
+		}
+		str = str[1:]
+	}
 	for _, c := range str {
-		if t := string(c); foundSign < 2 {
-			if unicode.IsNumber(c) {
-				ret += t
-			} else if t == "-" {
-				if ret != "" {
-					break
-				}
-				foundSign++
-				f = -1
-			} else if t == "+" {
-				if ret != "" {
-					break
-				}
-				foundSign++
-			} else if t == " " {
-				if foundSign > 0 || ret != "" {
-					break
-				}
-			} else {
-				break
-			}
+		if _, ok := mapInt[c]; !ok {
+			break
+		}
+		result = result*10 + sign*mapInt[c]
+		if result > math.MaxInt32 {
+			return math.MaxInt32
+		}
+		if result < math.MinInt32 {
+			return math.MinInt32
 		}
 	}
-	if ret != "" {
-		num, _ := strconv.Atoi(ret)
-		num *= f
-		if num > 2147483647 {
-			return 2147483647
-		} else if num < -2147483648 {
-			return -2147483648
-		} else {
-			return num
-		}
-	}
-	return 0
+
+	return result
 }

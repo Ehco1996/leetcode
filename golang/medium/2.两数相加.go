@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=2 lang=golang
  *
@@ -34,7 +36,9 @@
  *     Next *ListNode
  * }
  */
+
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	// carry 表示十分有进一位
 	ret := &ListNode{Val: 0}
 	cur := ret
 	carry := 0
@@ -48,6 +52,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			sum += l2.Val
 			l2 = l2.Next
 		}
+		// 看是否要进位
 		if carry == 1 {
 			sum += 1
 			carry = 0
@@ -69,4 +74,3 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	return ret
 }
-
