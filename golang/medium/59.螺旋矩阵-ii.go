@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=59 lang=golang
  *
@@ -28,7 +30,8 @@
  */
 
 func generateMatrix(n int) [][]int {
-	// 插入第一行、然后逆时针旋转矩阵 接着插入
+	// 按照 l->r t->b r->l,b->t的顺序往里面添加数据
+	// 每个方向更新完之后需要更新边界
 
 	m := make([][]int, n)
 	for i := 0; i < n; i++ {
@@ -39,9 +42,6 @@ func generateMatrix(n int) [][]int {
 	l, r, t, b := 0, n-1, 0, n-1
 
 	for num := 1; num <= n*n; {
-		// 按照 l->r t->b r->l,b->t的顺序往里面添加数据
-		// 每个方向更新完之后需要更新边界
-
 		for i := l; i < r+1; i++ {
 			m[t][i] = num
 			num++
@@ -68,4 +68,3 @@ func generateMatrix(n int) [][]int {
 	}
 	return m
 }
-

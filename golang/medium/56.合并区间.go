@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=56 lang=golang
  *
@@ -41,6 +43,7 @@ func max(i, j int) int {
 }
 
 func merge(intervals [][]int) [][]int {
+	// 排序后向右移动
 	if len(intervals) <= 1 {
 		return intervals
 	}
@@ -69,4 +72,3 @@ func merge(intervals [][]int) [][]int {
 	}
 	return res
 }
-

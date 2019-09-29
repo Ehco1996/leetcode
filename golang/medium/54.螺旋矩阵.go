@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=54 lang=golang
  *
@@ -90,4 +92,3 @@ func spiralOrder(matrix [][]int) []int {
 	}
 	return res
 }
-

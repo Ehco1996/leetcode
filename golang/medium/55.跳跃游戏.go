@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=55 lang=golang
  *
@@ -35,7 +37,8 @@
  *
  */
 func canJump(nums []int) bool {
-	// 再当前回合呢 选择跳的最远的：（当前步数 + 下一格的步数）
+	// 贪心
+	// 在当前回合 选择跳的最远的：（当前步数 + 下一格的步数）
 	idx := 0
 	for idx < len(nums) && nums[idx] != 0 {
 		num := nums[idx]
@@ -55,4 +58,3 @@ func canJump(nums []int) bool {
 	}
 	return idx >= len(nums)-1
 }
-

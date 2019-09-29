@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=60 lang=golang
  *
@@ -83,6 +85,7 @@ func factorial(n int) int {
 }
 
 func getPermutation(n int, k int) string {
+	// 按顺序生成到k个后返回
 	nums := make([]string, n)
 	for i := 0; i < n; i++ {
 		nums[i] = strconv.Itoa(i + 1)
@@ -111,4 +114,3 @@ func getPermutation(n int, k int) string {
 	// fmt.Println(ps, cost)
 	return ps[k-1]
 }
-
