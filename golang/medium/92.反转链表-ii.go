@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=92 lang=golang
  *
@@ -52,4 +54,3 @@ func reverseList(head *ListNode, cnt int) (*ListNode, *ListNode) {
 	head.Next = restHead
 	return newHead, restHead
 }
-

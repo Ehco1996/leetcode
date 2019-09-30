@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=91 lang=golang
  *
@@ -63,4 +65,3 @@ func numDecodings(s string) int {
 	}
 	return dp[len(s)]
 }
-

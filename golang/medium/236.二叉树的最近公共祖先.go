@@ -1,3 +1,4 @@
+package medium
 /*
  * @lc app=leetcode.cn id=236 lang=golang
  *

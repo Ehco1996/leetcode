@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=93 lang=golang
  *
@@ -54,4 +56,3 @@ func getNextWords(s string, position int) (words []string) {
 	}
 	return
 }
-

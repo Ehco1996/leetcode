@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=90 lang=golang
  *
@@ -35,6 +37,7 @@
 import "sort"
 
 func subsetsWithDup(nums []int) [][]int {
+	// 回溯
 	res := [][]int{}
 	size := len(nums)
 	if size == 0 {
@@ -63,5 +66,3 @@ func helper(nums []int, start int, path []int, res *[][]int) {
 		path = path[:len(path)-1]
 	}
 }
-
-
