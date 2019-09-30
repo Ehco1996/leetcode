@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=61 lang=golang
  *
@@ -43,6 +45,7 @@
  * }
  */
 func rotateRight(head *ListNode, k int) *ListNode {
+	// 快慢指针
 	if k == 0 || head == nil {
 		return head
 	}
@@ -62,4 +65,3 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	slow.Next, fast.Next = nil, head
 	return newHead
 }
-

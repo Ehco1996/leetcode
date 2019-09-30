@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=62 lang=golang
  *
@@ -43,6 +45,7 @@
  *
  */
 func uniquePaths(m int, n int) int {
+	// 二维dp
 	// d(m,n) = d(m,n-1) + d(m-1,n)
 	if m <= 1 || n <= 1 {
 		return 1
@@ -69,4 +72,3 @@ func uniquePaths(m int, n int) int {
 	}
 	return f(m-1, n-1)
 }
-

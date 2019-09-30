@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=64 lang=golang
  *
@@ -39,7 +41,7 @@ func min(i, j int) int {
 	}
 }
 func minPathSum(grid [][]int) int {
-	//dp(i,j)=grid(i,j)+min(dp(i+1,j),dp(i,j+1)) 从左上角往下计算
+	//dp(i,j)=grid(i,j)+min(dp(i-1,j),dp(i,j-1)) 从左上角往下计算
 	//grid[m-1][n-1] 为答案
 
 	m := len(grid)
@@ -67,4 +69,3 @@ func minPathSum(grid [][]int) int {
 	}
 	return dp[m-1][n-1]
 }
-

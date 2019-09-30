@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=71 lang=golang
  *
@@ -65,6 +67,7 @@
 import "strings"
 
 func simplifyPath(path string) string {
+	// 栈 遇到路径入栈 遇到.. 出栈
 
 	if len(path) == 0 || string(path[0]) != "/" {
 		return ""
@@ -92,4 +95,3 @@ func simplifyPath(path string) string {
 	}
 	return res
 }
-

@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=63 lang=golang
  *
@@ -43,6 +45,7 @@
  *
  */
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
+	// dp
 	// d(m,n) = d(m,n-1) if(d(m,n-1)!=0) + d(m-1,n) if(d(m-1,n)=0)
 
 	if len(obstacleGrid) == 0 {
@@ -102,4 +105,3 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	}
 	return f(m-1, n-1)
 }
-
