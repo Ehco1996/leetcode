@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=80 lang=golang
  *
@@ -61,6 +63,7 @@ func min(a, b int) int {
 	}
 }
 func removeDuplicates(nums []int) int {
+	// 哈希
 	if len(nums) <= 1 {
 		return len(nums)
 	}
@@ -84,4 +87,3 @@ func removeDuplicates(nums []int) int {
 	}
 	return l
 }
-

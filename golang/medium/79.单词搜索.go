@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=79 lang=golang
  *
@@ -32,6 +34,7 @@
  *
  */
 func exist(board [][]byte, word string) bool {
+	// 深度优先搜索
 
 	m := len(board)
 	if m == 0 {
@@ -77,4 +80,3 @@ func exist(board [][]byte, word string) bool {
 	}
 	return false
 }
-

@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=81 lang=golang
  *
@@ -68,7 +70,7 @@ func search(nums []int, target int) bool {
 		}
 	}
 
-	// find rotate_index
+	// find rotate_index O（N）
 	rotateIndex := 1
 	for rotateIndex < len(nums) {
 		if nums[rotateIndex] < nums[rotateIndex-1] {
@@ -80,7 +82,6 @@ func search(nums []int, target int) bool {
 		rotateIndex = 0
 	}
 
-	fmt.Println(rotateIndex)
 	if nums[rotateIndex] == target {
 		return true
 	}
@@ -93,4 +94,3 @@ func search(nums []int, target int) bool {
 	return bs(0, rotateIndex)
 
 }
-

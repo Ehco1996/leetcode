@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=82 lang=golang
  *
@@ -41,6 +43,7 @@
 // }
 
 func deleteDuplicates(head *ListNode) *ListNode {
+	// 快慢指针 + fake节点
 	if head == nil {
 		return head
 	}
@@ -68,4 +71,3 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	slow.Next = fast
 	return dum.Next
 }
-

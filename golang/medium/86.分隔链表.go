@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=86 lang=golang
  *
@@ -33,6 +35,7 @@
  */
 
 func partition(head *ListNode, x int) *ListNode {
+	// 将链表拆成两个部分，最后拼接
 	if head == nil {
 		return nil
 	}
@@ -63,5 +66,3 @@ func partition(head *ListNode, x int) *ListNode {
 	before.Next = after_head.Next
 	return before_head.Next
 }
-
-
