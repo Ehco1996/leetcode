@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=77 lang=golang
  *
@@ -30,6 +32,7 @@
  *
  */
 func combine(n int, k int) [][]int {
+	// dfs
 
 	nums := make([]int, n)
 	for i := 0; i < n; i++ {
@@ -59,4 +62,3 @@ func combine(n int, k int) [][]int {
 	}
 	return helper(nums, k)
 }
-

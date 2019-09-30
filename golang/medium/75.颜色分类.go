@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=75 lang=golang
  *
@@ -35,6 +37,7 @@
  *
  */
 func sortColors(nums []int) {
+	// 哈希
 	h := make(map[int]int)
 
 	for _, num := range nums {
@@ -48,10 +51,9 @@ func sortColors(nums []int) {
 		} else if h[1] > 0 {
 			nums[idx] = 1
 			h[1]--
-		}else{
+		} else {
 			nums[idx] = 2
 		}
 	}
 
 }
-

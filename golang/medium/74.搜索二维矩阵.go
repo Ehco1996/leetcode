@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=74 lang=golang
  *
@@ -62,6 +64,7 @@ func bserach(nums []int, target int) bool {
 }
 
 func searchMatrix(matrix [][]int, target int) bool {
+	// 二分法
 	m := len(matrix)
 	n := 0
 	if m > 0 {
@@ -85,4 +88,3 @@ func searchMatrix(matrix [][]int, target int) bool {
 	}
 	return false
 }
-

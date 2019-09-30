@@ -1,3 +1,5 @@
+package medium
+
 /*
  * @lc app=leetcode.cn id=73 lang=golang
  *
@@ -67,6 +69,7 @@ func setZero(matrix [][]int, m, n int) {
 }
 
 func setZeroes(matrix [][]int) {
+	// 一次遍历找出需要置为0的行和列
 	m := len(matrix)
 	n := 0
 	if m != 0 {
@@ -87,4 +90,3 @@ func setZeroes(matrix [][]int) {
 		setZero(matrix, mem[0], mem[1])
 	}
 }
-
