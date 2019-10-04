@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=344 lang=golang
  *
@@ -35,6 +33,8 @@ package easy
  * 输出：["h","a","n","n","a","H"]
  *
  */
+
+// @lc code=start
 func reverseString(s []byte) {
 	// 双指针
 	for i, j := 0, len(s)-1; i < j; {
@@ -43,3 +43,6 @@ func reverseString(s []byte) {
 		j--
 	}
 }
+
+// @lc code=end
+
