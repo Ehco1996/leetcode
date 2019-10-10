@@ -46,6 +46,7 @@ func NewNode(isWord bool) *Node {
 	return &Node{Hash: make(map[string]*Node), IsWord: isWord}
 }
 
+// hash 每个node上有个hash存着到下一层的字母，并且有一个标志位来表示当前路径是否是一个单词
 type Trie struct {
 	Head *Node
 }
@@ -83,7 +84,7 @@ func (this *Trie) Search(word string) bool {
 
 /** Returns if there is any word in the trie that starts with the given prefix. */
 func (this *Trie) StartsWith(prefix string) bool {
-    cur := this.Head
+	cur := this.Head
 	for _, s := range prefix {
 		c := string(s)
 		if _, ok := cur.Hash[c]; !ok {

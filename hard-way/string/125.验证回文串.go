@@ -38,7 +38,8 @@ import (
 )
 
 func isPalindrome(s string) bool {
-	// 注意golang的string byte rune 直接的转换
+	// 双指针 主要去掉不是数字和字符的
+	// 注意golang的string byte rune 之间的转换
 	if len(s) == 0 {
 		return true
 	}

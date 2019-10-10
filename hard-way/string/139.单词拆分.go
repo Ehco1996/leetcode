@@ -49,19 +49,15 @@
 func wordBreak(s string, wordDict []string) bool {
 	// dp dp[i] 记录 s[:i] 是否满足条件
 	h := make(map[string]int)
-	maxWordsLens := 0
 	for _, sub := range wordDict {
 		h[sub]++
-		if len(sub) > maxWordsLens {
-			maxWordsLens = len(sub)
-		}
 	}
 
 	dp := make([]int, len(s)+1)
 	for i := 0; i < len(s); i++ {
 		for j := i + 1; j < len(s)+1; j++ {
 			if i > 0 && dp[i] != 1 {
-				// 表明之s[i] 已经不能构成了
+				// 表明s[i]已经不能构成了
 				break
 			}
 			if _, ok := h[s[i:j]]; ok {

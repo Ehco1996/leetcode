@@ -37,10 +37,10 @@
 // @lc code=start
 
 func isAnagram(s string, t string) bool {
+	// sort之后相同
 	if len(s) != len(t) {
 		return false
 	}
-	// sort之后相同
 	sl := strings.Split(s, "")
 	tl := strings.Split(t, "")
 

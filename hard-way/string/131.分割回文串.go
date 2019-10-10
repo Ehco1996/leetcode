@@ -31,6 +31,7 @@
 // @lc code=start
 func partition(s string) [][]string {
 	// dp + dfs dp缓存结果 dp[i][j]表示s[i:j]为回文串
+	// 如果一个字符s[i:j]是回文串 那么 s[i]==s[j] 且s[i+1:j-1]也是回文串(dp) 或者 len(s[i+1:j-1])=1
 
 	size := len(s)
 	dp := make([][]bool, size)

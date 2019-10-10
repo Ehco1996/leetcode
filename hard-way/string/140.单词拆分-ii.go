@@ -65,6 +65,7 @@ import "strings"
 
 func wordBreak(s string, wordDict []string) []string {
 	// dp dp[i] 记录 s[:i] 是否满足条件
+	// dfs 拿出所有结果
 	h := make(map[string]bool)
 	for _, sub := range wordDict {
 		h[sub] = true
