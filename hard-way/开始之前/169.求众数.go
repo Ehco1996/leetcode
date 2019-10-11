@@ -32,7 +32,7 @@
 
 // @lc code=start
 func majorityElement(nums []int) int {
-	// 哈希记录
+	// 哈希记录 若出现的次数大于n/2 则满足条件
 	h := make(map[int]int)
 	lens := len(nums)
 	res := 0

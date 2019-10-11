@@ -35,7 +35,7 @@
 // @lc code=start
 
 func merge(nums1 []int, m int, nums2 []int, n int) {
-	// 从后往前塞
+	// 从后往前塞O(n)
 
 	p := m + n - 1
 	m--

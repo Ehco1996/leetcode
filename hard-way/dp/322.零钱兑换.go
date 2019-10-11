@@ -43,6 +43,7 @@ func min(a, b int) int {
 }
 
 func coinChange(coins []int, amount int) int {
+	// 拆分子问题时，会发现组合的多少之和当前币种的选择有关
 	// f(n)=min{f(n-1),f(n-5),f(n-11)}+1
 
 	dp := make([]int, amount+1)

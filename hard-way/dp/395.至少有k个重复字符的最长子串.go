@@ -48,6 +48,7 @@ import (
 )
 
 func longestSubstring(s string, k int) int {
+	// dfs
 	// 统计每个字符出现的次数，如果出现的次数小于k 则包含该字符的子串不符合，将子串分割为左右两个部分
 
 	cntMap := make(map[rune]int)

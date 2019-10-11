@@ -77,6 +77,7 @@ func (this *RandomizedSet) Insert(val int) bool {
 
 /** Removes a value from the set. Returns true if the set contained the specified element. */
 func (this *RandomizedSet) Remove(val int) bool {
+	// 找到这个数的iindex并和最后一个元素互换
 	index, ok := this.numsMap[val]
 	if !ok {
 		return false

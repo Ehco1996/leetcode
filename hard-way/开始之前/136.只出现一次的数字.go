@@ -35,7 +35,6 @@
 // @lc code=start
 func singleNumber(nums []int) int {
 	// 位运算 a 异或 a=0  0 异或任何数等于数本身
-
 	num := 0
 	for _, n := range nums {
 		num = num ^ n

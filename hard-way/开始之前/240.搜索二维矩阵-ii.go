@@ -57,7 +57,7 @@ func bs(nums []int, target int) bool {
 }
 
 func searchMatrix(matrix [][]int, target int) bool {
-	// 二分查找
+	// 二分查找O(logN)
 	res := false
 
 	for _, nums := range matrix {

@@ -47,7 +47,8 @@ func min(a, b int) int {
 }
 
 func maxProduct(nums []int) int {
-	// dp dp(max) = max(now,now*max)
+	// dp 当num是负数的时候，最大值和最小值会发生转换
+	// dp(max) = max(now,now*max)
 	// dp(min) = min(now,now*max)
 
 	if len(nums) == 0 {

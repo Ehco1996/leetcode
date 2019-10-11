@@ -30,7 +30,7 @@
 
 // @lc code=start
 func productExceptSelf(nums []int) []int {
-	// 双指针
+	// 双指针 先从左面累乘 在从右面累乘
 	res := make([]int, len(nums))
 	res[0] = 1
 	for idx := 1; idx < len(nums); idx++ {

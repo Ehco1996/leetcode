@@ -66,7 +66,7 @@ func numSquares(n int) int {
 	// i表示当前数字，j*j表示平方数(从1到最大的平方数)
 	dp := make([]int, n+1)
 	for i := 1; i <= n; i++ {
-		// 最坏的情况
+		// 最坏的情况 最多要+1 n次
 		dp[i] = i
 		for j := 1; j*j <= i; j++ {
 			dp[i] = min(dp[i], dp[i-j*j]+1)

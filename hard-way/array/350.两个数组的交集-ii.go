@@ -45,7 +45,7 @@
 
 // @lc code=start
 func intersect(nums1 []int, nums2 []int) []int {
-	// Hash
+	// Hash 其实是set的实现
 
 	res := []int{}
 	h := make(map[int]int)

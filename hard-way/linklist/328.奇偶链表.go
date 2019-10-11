@@ -46,6 +46,7 @@
  * }
  */
 func oddEvenList(head *ListNode) *ListNode {
+	// 分两头，然后连接两个
 	if head == nil || head.Next == nil {
 		return head
 	}

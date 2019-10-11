@@ -44,7 +44,6 @@
 
 // @lc code=start
 func reverse(nums []int) {
-	// 旋转三次
 	for i, j := 0, len(nums)-1; i < j; {
 		nums[i], nums[j] = nums[j], nums[i]
 		i++
@@ -53,6 +52,7 @@ func reverse(nums []int) {
 }
 
 func rotate(nums []int, k int) {
+	// 旋转三次
 	if k >= len(nums) {
 		k = k % len(nums)
 	}

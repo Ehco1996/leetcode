@@ -36,31 +36,31 @@
 
 // @lc code=start
 import "math/rand"
-type Solution struct {
-    a []int
-}
 
+type Solution struct {
+	a []int
+}
 
 func Constructor(nums []int) Solution {
-    return Solution{nums}
+	return Solution{nums}
 }
-
 
 /** Resets the array to its original configuration and return it. */
 func (this *Solution) Reset() []int {
-    return this.a
+	return this.a
 }
-
 
 /** Returns a random shuffling of the array. */
 func (this *Solution) Shuffle() []int {
-    tmp := make([]int, len(this.a))
-    copy(tmp, this.a)
-    for i := 0; i< len(tmp); i++ {
-        r := rand.Intn(len(tmp))
-        tmp[i], tmp[r] = tmp[r], tmp[i]
-    }
-    return tmp
+	// 随机交换元素的位置
+	tmp := make([]int, len(this.a))
+	copy(tmp, this.a)
+	for i := 0; i < len(tmp); i++ {
+		r := rand.Intn(len(tmp))
+		tmp[i], tmp[r] = tmp[r], tmp[i]
+	}
+	return tmp
 }
+
 // @lc code=end
 

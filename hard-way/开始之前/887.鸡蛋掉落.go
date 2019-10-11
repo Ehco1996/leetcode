@@ -81,6 +81,7 @@ func calcMaximumCoverage(t int, k int) int {
 func superEggDrop(K int, N int) int {
 	// 从多少楼层多少个蛋最少要扔几次，转变为有多少个蛋扔几次可以测试出多少楼层
 	// https://www.bilibili.com/video/av45502458/
+	// 太难了
 	t := 1
 	for calcMaximumCoverage(t, K) < N+1 {
 		t++
