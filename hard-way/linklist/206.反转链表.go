@@ -34,6 +34,7 @@
  * }
  */
 func reverseList(head *ListNode) *ListNode {
+	// 递归
 	if head == nil || head.Next == nil {
 		return head
 	}

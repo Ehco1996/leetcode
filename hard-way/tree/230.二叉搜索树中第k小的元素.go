@@ -55,7 +55,7 @@
  * }
  */
 func kthSmallest(root *TreeNode, k int) int {
-	// preorder
+	// preorder 先序遍历的话就是一个递增的序列
 	res := 0
 	cnt := 0
 	var helper func(node *TreeNode)

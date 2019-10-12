@@ -46,7 +46,7 @@ func (a StrNum) Less(i, j int) bool {
 }
 
 func largestNumber(nums []int) string {
-	// 自定义排序顺序  string(a) + string(b) > string(b) + string(a) "12">"21"?5678904
+	// 自定义排序顺序  string(a) + string(b) > string(b) + string(a) "12">"21"?
 	sNums := make([]string, len(nums))
 	for i, n := range nums {
 		sNums[i] = strconv.Itoa(n)

@@ -55,6 +55,7 @@
 
 // @lc code=start
 func evalRPN(tokens []string) int {
+	// 一次遍历tokens表达式，如果是数字则进栈，如果是运算符，则将栈stack内前两个栈顶元素出栈，进行相应运算。
 	var stack []int
 	for i := 0; i < len(tokens); i++ {
 		switch ch := tokens[i]; ch {

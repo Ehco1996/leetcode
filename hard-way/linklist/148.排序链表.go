@@ -57,6 +57,7 @@ func sortList(head *ListNode) *ListNode {
 
 	h := &ListNode{}
 	res := h
+	// merge two link list
 	for left != nil && right != nil {
 		if left.Val < right.Val {
 			h.Next = left

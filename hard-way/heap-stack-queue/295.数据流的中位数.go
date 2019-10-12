@@ -76,6 +76,7 @@ func (this *MedianFinder) AddNum(num int) {
 }
 
 func (this *MedianFinder) FindMedian() float64 {
+	// 插入的时候保证数据的有序
 	n := len(this.Nums)
 	mid := n / 2
 	if n%2 == 1 {
