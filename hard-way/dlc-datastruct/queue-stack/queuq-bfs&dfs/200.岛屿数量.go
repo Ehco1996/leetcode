@@ -88,5 +88,45 @@ func numIslands(grid [][]byte) int {
 	return res
 }
 
+func numIslands(grid [][]byte) int {
+	// dfs 发现岛屿就开始搜索
+	if len(grid) == 0 {
+		return 0
+	}
+	X := len(grid)
+	Y := len(grid[0])
+	res := 0
+
+	for x := 0; x < X; x++ {
+		for y := 0; y < Y; y++ {
+			if grid[x][y] == '1' {
+				res++
+				dfs(grid, x, y)
+			}
+		}
+	}
+}
+
+func dfs(grid [][]byte, x, y int) {
+	directions := [][]int{
+		[]int{-1, 0},
+		[]int{0, -1},
+		[]int{1, 0},
+		[]int{0, 1},
+	}
+	//标记已经访问过了
+	grid[x][y] = '0'
+	for _, dir := range directions {
+		new_x := x + dir[0]
+		new_y := y + dir[1]
+		// 如果不越界，没访问过 并且还是陆地，就接着放入队列
+		if 0 <= new_x && new_x < len(grid) &&
+			0 <= new_y && new_y < len(grid[0]) &&
+			grid[new_x][new_y] == '1' {
+			dfs(grid, new_x, new_y)
+		}
+	}
+}
+
 // @lc code=end
 
