@@ -56,6 +56,7 @@
 // @lc code=start
 type Node struct {
 	Val  int
+	Pre  *Node
 	Next *Node
 }
 
@@ -71,6 +72,9 @@ func Constructor() MyLinkedList {
 /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
 func (this *MyLinkedList) Get(index int) int {
 	cur := this.Head
+	if cur == nil {
+		return -1
+	}
 	for i := 0; i < index; i++ {
 		cur = cur.Next
 		if cur == nil {
@@ -82,9 +86,16 @@ func (this *MyLinkedList) Get(index int) int {
 
 /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
 func (this *MyLinkedList) AddAtHead(val int) {
-	newNode := &Node{Val: val, Next: nil}
+	newNode := &Node{Val: val, Next: nil, Pre: nil}
+	if this.Head == nil {
+		this.Head = newNode
+		return
+	}
+
 	node := this.Head
+	node.Pre = newNode
 	newNode.Next = node
+
 	this.Head = newNode
 }
 
@@ -99,7 +110,7 @@ func (this *MyLinkedList) AddAtTail(val int) {
 	for cur.Next != nil {
 		cur = cur.Next
 	}
-	cur.Next = &Node{Val: val, Next: nil}
+	cur.Next = &Node{Val: val, Next: nil, Pre: cur}
 }
 
 func (this *MyLinkedList) AddAtIndex(index int, val int) {
@@ -117,7 +128,7 @@ func (this *MyLinkedList) AddAtIndex(index int, val int) {
 	}
 
 	next := cur.Next
-	cur.Next = &Node{Val: val, Next: next}
+	cur.Next = &Node{Val: val, Next: next, Pre: cur}
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
@@ -135,7 +146,11 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
 	}
 
 	if cur != nil && cur.Next != nil {
-		cur.Next = cur.Next.Next
+		node := cur.Next.Next
+		cur.Next = node
+		if node != nil {
+			node.Pre = cur
+		}
 	}
 }
 
