@@ -42,9 +42,50 @@
  */
 
 // @lc code=start
-func splitArray(nums []int, m int) int {
-	// TODO
 
+func maxInt(a, b int) int {
+	if a >= b {
+		return a
+	}
+	return b
+}
+
+func split(nums []int, largetSum int) int {
+	pieces := 1
+	sum := 0
+	for _, num := range nums {
+		if (sum + num) > largetSum {
+			pieces++
+			sum = num
+		} else {
+			sum += num
+		}
+	}
+	return pieces
+}
+
+func splitArray(nums []int, m int) int {
+	// 二分 最少能切成1份 最多能切成len(nums)份
+	// low: max(nums) high:sum(high)
+
+	max, sum := 0, 0
+	for _, num := range nums {
+		max = maxInt(max, num)
+		sum += num
+	}
+	low := max
+	high := sum
+
+	for low < high {
+		mid := (low + high) / 2
+		pieces := split(nums, mid)
+		if pieces > m {
+			low = mid + 1
+		} else {
+			high = mid
+		}
+	}
+	return low
 }
 
 // @lc code=end
