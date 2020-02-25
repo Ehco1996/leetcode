@@ -28,65 +28,128 @@
  */
 
 // @lc code=start
-// TODO
+type Node struct {
+	val  int
+	prev *Node
+	next *Node
+	keys map[string]bool
+}
+
+type DBL struct {
+	root *Node
+}
+
+func NewDBL() DBL {
+	node := &Node{-1, nil, nil}
+	node.prev = node
+	node.next = node
+
+	return DBL{
+		root: node,
+	}
+}
+
+func (d *DBL) Head() *Node {
+	return d.root.next
+}
+
+func (d *DBL) Tail() *Node {
+	return d.root.prev
+}
+
+func (d *DBL) remove(node *Node) {
+	if node == d.root {
+		return
+	}
+
+	if node == d.Tail() {
+		d.root.prev = node.prev
+	}
+	if node.next != nil {
+		node.next.prev = node.prev
+	}
+	node.prev.next = node.next
+}
+
 type AllOne struct {
-	Store  map[string]int
-	Max    int
-	MaxKey string
-	Min    int
-	MinKey string
+	keyMap map[string]*Node
+	db     DBL
 }
 
 /** Initialize your data structure here. */
 func Constructor() AllOne {
-	return AllOne{Store: make(map[string]int)}
-}
-
-func (this *AllOne) balance(key string) {
-	if len(this.Store) == 1 {
-		this.Max = this.Store[key]
-		this.MaxKey = key
-		this.Min = this.Store[key]
-		this.MinKey = key
-	}
-	val := this.Store[key]
-
-	if val < this.Min {
-		this.Min = this.Store[key]
-		this.MinKey = key
-
-	}
-	if va > this.Max {
-		this.Max = this.Store[key]
-		this.MaxKey = key
+	return AllOne{
+		keyMap: make(map[string]*Node),
+		db:     NewDBL(),
 	}
 }
 
 /** Inserts a new key <Key> with value 1. Or increments an existing key by 1. */
 func (this *AllOne) Inc(key string) {
-	this.Store[key]++
-	this.balance(key)
+	node, ok := this.db.KeyMap[key]
+	if ok {
+		node.val++
+		next := node.next
+		this.db.remove(node)
+	} else {
+		node := &Node{0, nil, nil, make(map[string]bool)}
+		this.db.KeyMap[key] = node
+	}
+	// 找到第一个当前值小的node
+	for node.val <= next.val {
+		next = next.next
+	}
+	if next.val == node.val {
+		//合并keys
+		for k, _ := range node.keys {
+			next.keys[k] = true
+		}
+	} else {
+		// 添加新的节点
+		this.db.insert(next, node)
+	}
 
 }
 
 /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
 func (this *AllOne) Dec(key string) {
-	this.Store[key]--
-	this.balance(key)
+
+	node, ok := this.db.KeyMap[key]
+	if ok {
+		node.val--
+		prev := node.prev
+		this.db.remove(node)
+	} else {
+		node := &Node{0, nil, nil, make(map[string]bool)}
+		this.db.KeyMap[key] = node
+	}
+	// 找到第一个当前值小的node
+	for node.val <= prev.val {
+		prev = prev.prev
+	}
+	if prev.val == node.val {
+		//合并keys
+		for k, _ := range node.keys {
+			next.keys[k] = true
+		}
+	} else {
+		// 添加新的节点
+		this.db.insert(prev, node)
+	}
 }
 
 /** Returns one of the keys with maximal value. */
 func (this *AllOne) GetMaxKey() string {
-	if len(this.Store) != 0 {
-		return this.MaxKey
+	for key, _ := range this.db.Tail().keys {
+		return key
 	}
 	return ""
 }
 
 /** Returns one of the keys with Minimal value. */
 func (this *AllOne) GetMinKey() string {
-	if len(this.Store) != 0 {
-		return this.MinKey
+	for key, _ := range this.db.Head().keys {
+		return key
 	}
 	return ""
 }
