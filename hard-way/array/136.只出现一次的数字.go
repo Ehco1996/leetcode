@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=136 lang=golang
  *
@@ -42,4 +40,22 @@ func singleNumber(nums []int) int {
 		a = a ^ num
 	}
 	return a
+}
+
+func singleNumber(nums []int) int {
+	// 位操作 但是记不得，还是用hash做吧
+	set := make(map[int]int)
+	for _, num := range nums {
+		set[num]++
+		if set[num] > 1 {
+			delete(set, num)
+		}
+	}
+	var res int
+
+	for k, _ := range set {
+		res = k
+	}
+	return res
+
 }
