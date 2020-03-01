@@ -78,7 +78,7 @@
 func isValidSudoku(board [][]byte) bool {
 
 	dot:="."
-	
+
 	// check x
 	for i := 0; i < 9; i++ {
 		row := board[i]
