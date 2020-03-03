@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=8 lang=golang
  *
@@ -108,6 +106,5 @@ func myAtoi(str string) int {
 			return math.MinInt32
 		}
 	}
-
 	return result
 }
