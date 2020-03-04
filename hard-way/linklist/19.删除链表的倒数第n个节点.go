@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=19 lang=golang
  *
@@ -41,18 +39,23 @@ package medium
  * }
  */
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	// 全拿出来再存
-	nodes := []*ListNode{}
-	for node := head; node != nil; node = node.Next {
-		nodes = append(nodes, node)
+	// 双指针  p q ,当q到达终点，q和p相距n时 满足要求
+
+	dummy := &ListNode{Val: -1, Next: head}
+
+	p := dummy
+	q := dummy
+	// q 先走n步 这时两者相差n
+	for i := 0; i <= n; i++ {
+		q = q.Next
 	}
 
-	if len(nodes)-n == 0 {
-		return head.Next
-	} else {
-		pre := nodes[len(nodes)-n-1]
-		target := nodes[len(nodes)-n]
-		pre.Next = target.Next
+	for q != nil {
+		q = q.Next
+		p = p.Next
 	}
-	return head
+
+	node := p.Next
+	p.Next = node.Next
+	return dummy.Next
 }

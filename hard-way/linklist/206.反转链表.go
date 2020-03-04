@@ -34,18 +34,17 @@
  * }
  */
 func reverseList(head *ListNode) *ListNode {
-	// 递归
+	// 递归版
+	// https://zhuanlan.zhihu.com/p/86745433
+
 	if head == nil || head.Next == nil {
 		return head
 	}
-	res := reverseList(head.Next)
-	node := res
-	for node.Next != nil {
-		node = node.Next
-	}
-	node.Next = head
+
+	last := reverseList(head.Next)
+	head.Next.Next = head
 	head.Next = nil
-	return res
+	return last
 }
 
 // @lc code=end
