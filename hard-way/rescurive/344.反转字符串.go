@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=344 lang=golang
  *
@@ -35,11 +33,27 @@ package easy
  * 输出：["h","a","n","n","a","H"]
  *
  */
+
+func helper(s []byte) []byte {
+	l := len(s)
+	if l <= 1 {
+		return s
+	} else {
+		last := s[l-1]
+		s = s[:l-1]
+		s = helper(s)
+		s = append([]byte{last}, s...)
+		return s
+	}
+}
+
 func reverseString(s []byte) {
-	// 双指针
-	for i, j := 0, len(s)-1; i < j; {
-		s[i], s[j] = s[j], s[i]
-		i++
-		j--
+	// 想要用递归做貌似不可能不用额外空间
+	if len(s) <= 1 {
+		return
+	}
+
+	for i, v := range helper(s) {
+		s[i] = v
 	}
 }

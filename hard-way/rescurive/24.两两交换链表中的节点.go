@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=24 lang=golang
  *
@@ -35,7 +33,7 @@ package medium
  * }
  */
 
-// 1-2-3-4 -> 2-1-3-4
+// 1-2-3-4 -> 2-1-4-3
 func swapPairs(head *ListNode) *ListNode {
 	// 快慢指针 两两交换
 	if head != nil && head.Next != nil {
@@ -54,5 +52,17 @@ func swapPairs(head *ListNode) *ListNode {
 		}
 	}
 	return head
-
 }
+
+func swapPairs(head *ListNode) *ListNode {
+	// 递归做法
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	p := head.Next
+	head.Next = swapPairs(head.Next.Next)
+	p.Next = head
+	return p
+}
+
