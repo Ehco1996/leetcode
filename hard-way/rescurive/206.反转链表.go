@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=206 lang=golang
  *
@@ -40,10 +38,23 @@ package easy
 // }
 
 func reverseList(head *ListNode) *ListNode {
+	// 递归版
+	// https://zhuanlan.zhihu.com/p/86745433
+
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	last := reverseList(head.Next)
+	head.Next.Next = head
+	head.Next = nil
+	return last
+}
+
+func reverseList(head *ListNode) *ListNode {
 	var last *ListNode
 	for head != nil {
 		head.Next, last, head = last, head, head.Next
 	}
 	return last
-
 }

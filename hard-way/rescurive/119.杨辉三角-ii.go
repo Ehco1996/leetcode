@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=119 lang=golang
  *
@@ -32,6 +30,24 @@ package easy
  * 你可以优化你的算法到 O(k) 空间复杂度吗？
  *
  */
+
+func getRow(rowIndex int) []int {
+	// 递归
+	if rowIndex == 0 {
+		return []int{1}
+	}
+	lastRow := getRow(rowIndex - 1)
+	row := make([]int, rowIndex+1)
+	for i, _ := range row {
+		if i == 0 || i == len(row)-1 {
+			row[i] = 1
+		} else {
+			row[i] = lastRow[i-1] + lastRow[i]
+		}
+	}
+
+	return row
+}
 
 func getRow(rowIndex int) []int {
 	// 只保留上一行的数据

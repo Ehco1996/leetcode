@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=118 lang=golang
  *
@@ -34,6 +32,32 @@ package easy
  * ]
  *
  */
+
+func generate(numRows int) [][]int {
+	// 递归版本
+	res := [][]int{}
+	if numRows == 0 {
+		return res
+	}
+	if numRows == 1 {
+		res = append(res, []int{1})
+		return res
+	}
+
+	prev := generate(numRows - 1)
+	lastRow := prev[len(prev)-1]
+	row := make([]int, numRows)
+	for i, _ := range row {
+		if i == 0 || i == len(row)-1 {
+			row[i] = 1
+		} else {
+			row[i] = lastRow[i-1] + lastRow[i]
+		}
+	}
+	prev = append(prev, row)
+	return prev
+}
+
 func generate(numRows int) [][]int {
 	if numRows == 0 {
 		return [][]int{}
