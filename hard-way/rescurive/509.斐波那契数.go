@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=509 lang=golang
  *
@@ -56,13 +54,19 @@ package easy
  *
  */
 func fib(N int) int {
-	//  递归
-	if N == 0 {
-		return 0
-	}
-	if N == 1 {
-		return 1
-	}
-	return fib(N-1) + fib(N-2)
+	cache := make(map[int]int)
 
+	var helper func(n int) int
+	helper = func(n int) int {
+		if val, ok := cache[n]; ok {
+			return val
+		}
+		if n < 2 {
+			return n
+		}
+		res := helper(n-1) + helper(n-2)
+		cache[n] = res
+		return res
+	}
+	return helper(N)
 }

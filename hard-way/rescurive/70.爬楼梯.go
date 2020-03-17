@@ -41,17 +41,19 @@
 func climbStairs(n int) int {
 	// d(p) = d(p-1)+ d(p-2)
 	// 要么爬一级 要么爬两级（爬上n-1层楼梯方法的数量 + 爬上n-2层楼梯方法的数量）
-	// if n == 1 || n == 0 {
-	// 	return 1
-	// }
-	// return climbStairs(n-1) + climbStairs(n-2)
 
-	dp := make([]int, n+1)
-	dp[0] = 1
-	dp[1] = 1
-	for i := 2; i <= n; i++ {
-		dp[i] = dp[i-1] + dp[i-2]
+	cache := make(map[int]int)
+	var helper func(n int) int
+	helper = func(n int) int {
+		if n == 1 || n == 0 {
+			return 1
+		}
+		if val, ok := cache[n]; ok {
+			return val
+		}
+		res := helper(n-1) + helper(n-2)
+		cache[n] = res
+		return res
 	}
-	return dp[n]
-
+	return helper(n)
 }
