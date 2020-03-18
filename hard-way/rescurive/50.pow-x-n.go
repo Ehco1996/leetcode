@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=50 lang=golang
  *
@@ -11,7 +9,7 @@ package medium
  * Medium (32.93%)
  * Likes:    168
  * Dislikes: 0
- * Total Accepted:    31K
+//  * Total Accepted:    31K
  * Total Submissions: 93.3K
  * Testcase Example:  '2.00000\n10'
  *
@@ -42,7 +40,7 @@ package medium
  * n 是 32 位有符号整数，其数值范围是 [−2^31, 2^31 − 1] 。
  *
  *
- */
+*/
 
 func fastPow(x float64, n int) float64 {
 	// 分解递归
