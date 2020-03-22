@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=5 lang=golang
  *
@@ -45,7 +43,6 @@ func longestPalindrome(s string) string {
 		dp[i] = make([]bool, size)
 	}
 
-	maxLens := 1
 	res := string(s[0])
 
 	//因为只有 1 个字符的情况在最开始做了判断
@@ -58,8 +55,7 @@ func longestPalindrome(s string) string {
 			//重点理解 or 的短路性质在这里的作用
 			if s[l] == s[r] && (r-l <= 2 || dp[l+1][r-1]) {
 				dp[l][r] = true
-				if curLens := r - l + 1; curLens > maxLens {
-					maxLens = curLens
+				if curLens := r - l + 1; curLens > len(res) {
 					res = s[l : r+1]
 				}
 			}

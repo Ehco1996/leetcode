@@ -1,5 +1,3 @@
-package easy
-
 /*
  * @lc app=leetcode.cn id=1 lang=golang
  *
@@ -30,14 +28,12 @@ package easy
  */
 
 func twoSum(nums []int, target int) []int {
-	// hash 一次遍历 空间：O(n) 时间O(n)
-	info := make(map[int]int)
-	for i, num := range nums {
-		if index, ok := info[target-num]; ok {
-			return []int{index, i}
-		} else if _, ok := info[num]; !ok {
-			info[num] = i
+	h := make(map[int]int)
+	for idx, num := range nums {
+		if val, ok := h[target-num]; ok {
+			return []int{val, idx}
 		}
+		h[num] = idx
 	}
 	return []int{}
 }
