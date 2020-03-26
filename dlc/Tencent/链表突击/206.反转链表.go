@@ -38,25 +38,6 @@
 // }
 
 func reverseList(head *ListNode) *ListNode {
-	// 不断将节点移动到链表头部
-
-	if head == nil {
-		return head
-	}
-
-	dummy := head
-	for head.Next != nil {
-		node := head.Next
-		head.Next = node.Next
-
-		node.Next = dummy
-		dummy = node
-
-	}
-	return dummy
-}
-
-func reverseList(head *ListNode) *ListNode {
 	// 递归版
 	// https://zhuanlan.zhihu.com/p/86745433
 
@@ -67,5 +48,13 @@ func reverseList(head *ListNode) *ListNode {
 	last := reverseList(head.Next)
 	head.Next.Next = head
 	head.Next = nil
+	return last
+}
+
+func reverseList(head *ListNode) *ListNode {
+	var last *ListNode
+	for head != nil {
+		head.Next, last, head = last, head, head.Next
+	}
 	return last
 }
