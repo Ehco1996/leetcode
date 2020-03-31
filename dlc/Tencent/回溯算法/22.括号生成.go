@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=22 lang=golang
  *
@@ -31,6 +29,7 @@ package medium
  */
 func generateParenthesis(n int) []string {
 	// dfs
+	// 用hash来去重
 	h := make(map[string]int)
 	var dfs func(path string)
 	dfs = func(path string) {
@@ -49,5 +48,4 @@ func generateParenthesis(n int) []string {
 		res = append(res, p)
 	}
 	return res
-
 }

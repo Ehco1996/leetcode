@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=46 lang=golang
  *
@@ -32,7 +30,6 @@ package medium
  *
  */
 func permute(nums []int) [][]int {
-	// 迭代的方式
 	res := [][]int{}
 	if len(nums) == 0 {
 		return res
@@ -52,5 +49,4 @@ func permute(nums []int) [][]int {
 		}
 	}
 	return res
-
 }

@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=78 lang=golang
  *
@@ -62,11 +60,21 @@ func subsets(nums []int) [][]int {
 		return res
 	}
 	sort.Ints(nums)
+	var helper func(start int, now []int)
+	helper = func(start int, now []int) {
+		t := make([]int, len(now))
+		copy(t, now)
+		res = append(res, t)
 
-	path := []int{}
-	helper(nums, 0, path, &res)
+		for i := start; i < len(nums); i++ {
+			now = append(now, nums[i])
+			helper(i+1, now)
+			now = now[:len(now)-1]
+		}
+
+	}
+	helper(0, []int{})
 	return res
-
 }
 
 func helper(nums []int, start int, path []int, res *[][]int) {
