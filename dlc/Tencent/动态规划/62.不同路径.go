@@ -1,5 +1,3 @@
-package medium
-
 /*
  * @lc app=leetcode.cn id=62 lang=golang
  *
@@ -66,6 +64,7 @@ func uniquePaths(m int, n int) int {
 	var f func(x, y int) int
 	f = func(x, y int) int {
 		if dp[x][y] == 0 {
+			// 这个格子还没来来过
 			dp[x][y] = f(x-1, y) + f(x, y-1)
 		}
 		return dp[x][y]
