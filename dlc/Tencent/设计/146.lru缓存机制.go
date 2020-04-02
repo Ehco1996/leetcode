@@ -54,7 +54,7 @@ type DBL struct {
 }
 
 func NewDBL(lens int) DBL {
-	node := &Node{-1, nil, nil, -1}
+	node := &Node{-1, nil, nil}
 	node.prev = node
 	node.next = node
 
@@ -124,7 +124,7 @@ func (this *LRUCache) Get(key int) int {
 		this.dbl.moveToTail(node)
 		return node.val
 	}
-	return -1
+	return nil
 }
 
 func (this *LRUCache) Put(key int, value int) {
