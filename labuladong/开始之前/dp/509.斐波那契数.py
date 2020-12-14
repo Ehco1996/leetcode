@@ -40,11 +40,19 @@ class Solution:
             dp[i] = dp[i - 1] + dp[i - 2]
         return dp[n]
 
-    def fib_min_memory(self):
+    def fib_min_memory(self, n):
         """最优解: 发现不需要整张dp表，只需要前1、2两位就好"""
-        # TODO
-        pass
+        if n < 3:
+            return self._fib(n)
+        # init base cace
+        a, b = 1, 1
+        for i in range(3, n + 1):
+            a, b = b, a + b
+        return b
+
+    def test(self):
+        for i in range(0, 20):
+            assert self._fib(i) == self.fib_min_memory(i)
 
 
 # @lc code=end
-
