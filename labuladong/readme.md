@@ -2,7 +2,7 @@
 
 ## 动态规划
 
-```bash
+``` bash
 基本框架
 # 初始化 base case
 dp[0][0][...] = base
@@ -13,10 +13,9 @@ for 状态1 in 状态1的所有取值：
             dp[状态1][状态2][...] = 求最值(选择1，选择2...)
 ```
 
-
 ## 回溯法
 
-```bash
+``` python
 result = []
 def backtrack(路径, 选择列表):
     if 满足结束条件:
@@ -31,7 +30,7 @@ def backtrack(路径, 选择列表):
 
 ### bfs (本质上就是图里找最短路径)
 
-```bash
+``` java
 // 计算从起点 start 到终点 target 的最近距离
 int BFS(Node start, Node target) {
     Queue<Node> q; // 核心数据结构
@@ -60,4 +59,55 @@ int BFS(Node start, Node target) {
         step++;
     }
 }
+```
+
+## 二分法
+
+``` python
+def search(self, nums, target):
+    left = 0
+    right = len(nums) - 1
+    while left <= right:
+        mid = left + (right - left) // 2
+        if nums[mid] < target:
+            left = mid + 1
+        elif nums[mid] > target:
+            right = mid - 1
+        elif nums[mid] == target:
+            return mid
+    return -1
+
+def left_bound(self, nums, target):
+    left = 0
+    right = len(nums)-1
+    while left <= right:
+        mid = left + (right - left) // 2
+        if nums[mid] < target:
+            left = mid + 1
+        elif nums[mid] > target:
+            right = mid - 1
+        elif nums[mid] == target:
+            # 找到之后不返回，锁定在左侧边界
+            right = mid - 1
+    # 判断一下越界的情况
+    if left >= len(nums) or nums[left] != target:
+        return -1
+    return left
+
+def right_bound(self, nums, target):
+    left = 0
+    right = len(nums)-1
+    while left <= right:
+        mid = left + (right - left) // 2
+        if nums[mid] < target:
+            left = mid + 1
+        elif nums[mid] > target:
+            right = mid - 1
+        elif nums[mid] == target:
+            # 找到之后不返回，锁定在左侧边界
+            right = mid - 1
+    # 判断一下越界的情况
+    if right < 0 or nums[right] != target
+        return -1
+    return right
 ```
