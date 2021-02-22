@@ -19,7 +19,7 @@ class Solution:
         Do not return anything, modify root in-place instead.
         1.将 root 的左子树和右子树拉平。
         2.将左子树作为右子树。
-        3.将整个左子树作为右子树。
+        3.将整个左子树接到右子树的下方。
         """
 
         if not root:
@@ -34,6 +34,7 @@ class Solution:
         root.right = left
 
         p = root
+        # 找到最右下角的那个节点
         while p.right:
             p = p.right
         p.right = right

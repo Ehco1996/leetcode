@@ -39,7 +39,6 @@ class NestedIterator:
     def hasNext(self) -> bool:
         while len(self.res) > 0 and not self.res[0].isInteger():
             first = self.res.pop(0).getList()
-            print(first)
             for i in first[::-1]:
                 self.res.insert(0, i)
         return len(self.res) > 0
