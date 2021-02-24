@@ -15,6 +15,13 @@
 
 class Solution:
     def isValidBST(self, root) -> bool:
+        """
+        关键是在于中序遍历的是一个升序数列
+        那么对于root左树来说，最大的节点就是root
+            左树的每个节点都要比最小节点还要小
+        那么对于root右树来说，最小的节点就是root
+            右树的每个节点都要比最大节点还要大
+        """
         return self.helper(root, None, None)
 
     def helper(self, root, min_node, max_node):

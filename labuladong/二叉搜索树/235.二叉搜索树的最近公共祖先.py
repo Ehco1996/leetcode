@@ -15,31 +15,27 @@
 
 class Solution:
     def lowestCommonAncestor(self, root, p, q):
-        """
-        为由于二叉搜索树具有很强的特性，每个节点的右孩子均大于左孩子，
-        所以我们要找他们最先出现的祖先节点，这意味着他们一定在某一个节点的两边
-        只需要找到某个节点中同时满足大于p节点的值还满足小于q节点的值即可
-        """
-        if not root:
-            return
-
-        # 保证p<q
-        if p.val > q.val:
-            p, q = q, p
-
-        # 每次递归都有以下几种情况
-        # 1 如果当前节点大于p小于q 就找到了
-        if root.val >= p.val and root.val <= q.val:
+        if root is None or p == root or q == root:
             return root
 
-        # 2 当前值大于p了，就要往左边找，变小
-        if root.val >= p.val and root.left:
-            return self.lowestCommonAncestor(root.left, p, q)
+        # 找到p，q在左树和右树的最近的公共祖先
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
 
-        # 3 当前值小于q了，就要往右边找，变大
-        if root.val <= q.val and root.right:
-            return self.lowestCommonAncestor(root.right, p, q)
-        return root
+        # 每次递归都有以下几种情况
+
+        # 1. 如果在左树和右树中都能找到公共祖先，那说明root.left =p root.right=q 既root就是pq的公共祖先
+        if left and right:
+            return root
+
+        # 2. 如果p和q都不在以root为根的树中，说明没公共祖先
+        if not left and not right:
+            return None
+
+        # 3 如果p和q只有一个存在于root为根的树中，那么找到的那个节点就是公共祖先
+        if left:
+            return left
+        return right
 
 
 # @lc code=end

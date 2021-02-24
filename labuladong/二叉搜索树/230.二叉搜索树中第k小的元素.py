@@ -13,6 +13,9 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root, k) -> int:
+        """
+        利用二叉树的前序遍历(左中右)是升序来找
+        """
         self.k = k
         self.res = 0
         self.traverse(root)

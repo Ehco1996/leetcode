@@ -14,7 +14,7 @@
 #         self.right = right
 class Solution:
     def convertBST(self, root):
-        """将bst从大到小变量，后序变量"""
+        """将bst从大到小遍历，既后序遍历"""
         self.sum = 0
         self.traverse(root)
         return root
