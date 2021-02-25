@@ -7,6 +7,11 @@
 # @lc code=start
 class Solution:
     def isValid(self, s: str) -> bool:
+        """
+        用栈来存，遇到左边的括号直接入栈，遇到右边的括号就从栈里往外抛，
+        如果抛出的元素不是当前的括号的另一半的话说明不合法
+        最后还要判断栈是否为空
+        """
         stack = []
         for c in s:
             if c in ["(", "{", "["]:

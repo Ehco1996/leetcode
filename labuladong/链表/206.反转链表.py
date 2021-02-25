@@ -14,6 +14,7 @@
 
 class Solution:
     def reverseList(self, head):
+        """先反转head 之外的链表，在把head解上去"""
         if not head or not head.next:
             return head
         last = self.reverseList(head.next)

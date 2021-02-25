@@ -8,6 +8,8 @@
 class Solution:
     def trap(self, height) -> int:
         """
+        双指针
+
         每个格子能装的水量是min(max_left,max_right)-height[i]
         """
         if not height:

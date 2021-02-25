@@ -12,7 +12,7 @@
 #         self.next = next
 class Solution:
     def reverseList(self, a, b):
-        """反转a,b之前的链表"""
+        """反转a,b之间的链表"""
 
         pre = None
         cur = a
